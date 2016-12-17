@@ -1,0 +1,64 @@
+body{
+    background-color: #cccccc;
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: deeppink;
+    text-decoration: none;
+}
+#shortcut{
+    padding-top: 5px;
+    background-color:#e1e1e1;
+    box-shadow: 0px 3px 10px grey;
+
+}
+
+nav{
+    padding-top: 5px 0px;
+    background-color:#e1e1e1;
+    box-shadow: 0px 3px 10px grey;
+    margin:0px;
+    border:0px;
+}
+
+#a01{
+    background: #000 url("img/a01.png");
+    background-attachment: fixed;
+}
+
+#a02{
+    background: #000 url("img/a03.png");
+    background-attachment: fixed;
+
+}
+
+#a03{
+    background: #000 url("img/a02.png");
+    background-attachment: fixed;
+}
+
+.fixed{
+    position:relative;
+    background-position: center top;
+    z-index=-2;
+    height: 100vh;
+    width: 100%;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.fixed div{
+    position: absolute;
+    color: white;
+    min-height: 150px;
+    bottom: 10%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow:inset 0px 0px 0px 2px deeppink;
+}
+
+

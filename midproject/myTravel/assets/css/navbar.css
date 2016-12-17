@@ -1,0 +1,33 @@
+.navbar {
+    height: 40px;
+}
+
+#travel-home {
+    margin-top: -5px;
+    height: 30px;
+}
+
+#nav-search-input {
+    border-radius: 23px;
+    width: 250px;
+}
+
+#nav-search-label {
+    position: absolute;
+    margin-top: -29px;
+    margin-left: 225px;
+}
+
+#nav-search-label > a {
+    color: #aaaaaa;
+}
+
+#nav-search-label > a:hover {
+    color: #676767;
+}
+
+#nav-user {
+    margin-top: -5px;
+    height: 30px;
+    padding-right: 5px;
+}

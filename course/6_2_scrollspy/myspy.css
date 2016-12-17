@@ -1,0 +1,62 @@
+/*Global class*/
+
+.jumbotron {
+    background: url("http://www.growingyourbaby.com/wp-content/uploads/2015/12/pregnant-baby.jpg") center center;
+    /*    color: coral;*/
+    /*    text-shadow: 0px 0px 10px black;*/
+    color: rgba(, 0, 0.7);
+    font-weight: 800;
+    padding: 100px 25px;
+    font-family: "Archivo Black", sans-serif;
+    width: auto;
+    height: 400px;
+    background-size: cover;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+#area1, #area2, #area3, #area4, #area5{
+    color: white;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+#area1{
+    background-color:darkcyan;
+    min-height: 500px;
+}
+
+#area2{
+    background-color:cornflowerblue;
+    min-height: 500px;
+}
+
+
+#area3{
+    background-color:lightcoral;
+    min-height: 500px;
+}
+
+
+#area4{
+    background-color:limegreen;
+    min-height: 500px;
+}
+
+
+#area5{
+    background-color:brown;
+    min-height: 500px;
+}
+
+
+
+
+#moved {
+    position: absolute;
+    left: 0;
+    /*    top: 50%;*/
+    height: 50px;
+    width: 10%;
+    background-color: rgba(0, 0, 255, 0.5);
+}

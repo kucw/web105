@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- google font -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|3d-float|ice">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- Bootstrap custom css-->
+    <link rel="stylesheet" href="bootstrap.css">
+
+    <!-- jquery for google sheet-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.0/dist/sheetrock.min.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#members">MEMBERS</a></li>
+                    <li><a href="#books">BOOKS</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#publications">PUBLICATIONS</a></li>
+                    <li><a href="#activity">ACTIVITY</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Data practice team @ ntu journalism</h1>
+        </div>
+    </div>
+    <div id="table1" class="container-fluid">
+        <h2>Table1</h2>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 iframe-container">
+                <h2>Table1</h2>
+                <iframe src="https://docs.google.com/spreadsheets/d/1IuxZnC-SFLGOXozkTnzk18MMV2sGWs9U26zwsjD4w5A/pubhtml?gid=0&single=true" class="iframe-table"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="table2" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 iframe-container">
+                <h2>Table2</h2>
+                <table id="#my-table"></table>
+            </div>
+        </div>
+    </div>
+    <table id="mytable" class="table table-hover table-bordered table-striped"></table>
+    <script>
+        var mygoogleSpreadsheet = "https://docs.google.com/spreadsheets/d/1IuxZnC-SFLGOXozkTnzk18MMV2sGWs9U26zwsjD4w5A/pubhtml?gid=0&single=true"
+        $("#mytable").sheetrock({
+            url: mygoogleSpreadsheet,
+            query: "select A,B,C,D"
+        });
+    </script>
+
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+                <h2 id="about-popover">About us</h2>
+                <div class="row">
+                    <div class="col-sm-6"><span class="fa fa-camera-retro fa-1x"></span> Teacher</div>
+                    <div class="col-sm-6">Student</div>
+                </div>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+                <h4>hello</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="members" class="container-fluid">
+        <h2>members</h2>
+        <div class="row">
+            <img src="assets/Beach.jpg">
+        </div>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+        <h4>hello</h4>
+    </div>
+    <div id="books" class="container-fluid">
+        <h2>Books</h2>
+    </div>
+    <div id="parallax1"></div>
+    <div id="projects" class="container-fluid">
+        <div id="gallery" class="container-fluid">
+            <h2>Projects</h2>
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <a class="thumbnail" href="https://rapidminer.com/wp-content/uploads/2016/08/data-scientist.jpg" target="_blank">
+                            <img class="img-responsive" src="assets/facebook.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"> <img class="img-responsive" src="assets/github.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="publications" class="container-fluid">
+        <h2>Publications</h2>
+        <p data-toggle="collapse" data-target="#paper0">Yu C.Y and Hsieh J.L. (Accepted) Lifelogging: Recording Life Patterns Tied to Daily Internet Usage. To appear in International Handbook of Internet Research (Vol. 2), Springer.</p>
+        <div id="paper0" class="collapse">該專書章節回顧了心理學早期的經驗取樣方法，乃至於近年因為智慧型手機技術的快速發展，得以建立以行動技術為基礎的經驗取樣方法，除便於取樣外，甚至可根據參與者的生活脈絡與規律進行抽樣。除此之外，本章節並介紹了行動追蹤相關技術，探究自動記錄手機的使用歷程，如何作為分析個人生活規律與社交媒介使用規律的工具。然而，利用手機資料必然涉及隱私與倫理問題，在本章亦利用最後一節說明美國MIT、Harvard與白宮針對資料搜集的隱私與倫理問題所提出的六大綱要，並以本研究的實施過程為例，一一說明本研究如何處理該六大綱要。</div>
+        <p data-toggle="collapse" data-target="#paper1">余貞誼、謝吉隆（2014）。跟著它一起呼吸─使用社群網站的生活韻律分析。2014年文化研究學會年會。臺北，台灣。</p>
+        <div id="paper1" class="collapse">本篇論文為應用時間日誌法（Time-Diary method）、視覺化方法以及質性詮釋來探究一對父母的生活脈絡如何影響其手機使用，並探究手機使用又如何反應其生活脈絡中的節奏韻律。除了使用日誌法外，尚擷取Chrome瀏覽器的瀏覽歷史紀錄與日誌資料相互印證。
+        </div>
+        <p data-toggle="collapse" data-target="#paper2">Hsieh, J. L. (31-Aug-2015 Accepted) Author Publication Preferences and Journal Competition. Journal of the Association for Information Science and Technology. (SSCI, 2013 Rank: 9/84 in Information Science and Library</p>
+        <div id="paper2" class="collapse">本篇論文以組織生態利基為理論背景，量化作者集中投稿至某些期刊的現象並藉以探究該現象所引致的期刊隱性競爭。為國內外資訊計量研究首次應用生態性競爭看法，並獲SSCI-Q1期刊JASIST接受發表。研究結果提出四項生態特性來描述資訊科學與圖書資訊學領域期刊間的隱性競爭：涵蓋度（Coverage）、核心度（ Coreness）、排他性（ Exclusivity）與利基重疊（Niche overlapping）。
+        </div>
+        <p data-toggle="collapse" data-target="#paper3">謝吉隆、沈柏辰、楊立偉（2015）。輔助新聞檢索之視覺化介面實作與使用者評估。圖書資訊學研究，9(2)，149-189。(TSSCI)</p>
+        <div id="paper3" class="collapse">因應現下線上新聞版面充斥著各種依照不同演算法排列的新聞，在社群網頁上，也因為群眾推薦機制的緣故，產生了時間崩塌的現象，但新聞閱讀卻同時重視時間性也重視議題性。在這樣的需求下，本研究提出一套視覺化新聞的輔助瀏覽工具，並企圖結合視覺化介面來提供使用者檢索資訊的記憶線索，便於使用者回溯搜尋過程或篩選搜尋的結果。
+        </div>
+
+    </div>
+    <div id="activity" class="container-fluid">
+        <div id="gallery2" class="container-fluid">
+            <h2>Activity</h2>
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <a href="#gallery2" title="Facebook">
+                            <img class="modalthumb" src="assets/facebook.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <a href="#gallery2" title="Github">
+                            <img class="modalthumb" src="assets/github.jpg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">×</button>
+                    <h3 class="modal-title">Heading</h3>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.modalthumb').click(function () {
+                $('.modal-body').empty();
+                var title = $(this).parent('a').attr("title");
+                console.log(title);
+                $('.modal-title').html(title);
+                $($(this).parents('div').html()).appendTo('.modal-body');
+                $('#myModal').modal({
+                    show: true
+                });
+            });
+            $('#about-popover').popover({
+                title: "Header",
+                content: "Blabla",
+                trigger: "hover",
+                container: "body"
+            });
+        });
+    </script>
+    <footer class="container-fluid">
+        <p class="font-effect-shadow-multiple font-effect-3d-float">Made By kucw</p>
+    </footer>
+
+</body>
+
+</html>

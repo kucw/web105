@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- font-awesome-->
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css-->
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/box.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+
+    <!-- custom javescript-->
+    <script src="assets/js/profile.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="intro.html"><img id="travel-home" src="assets/images/travel-home.png"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="intro.html">介紹</a></li>
+                    <li><a href="index.html">瀏覽文章</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="profile.html"><img id="nav-user" src="assets/images/kucw.jpg">kucw</a>
+                    </li>
+                </ul>
+                <form id="nav-search" class="navbar-form navbar-right" role="search">
+                    <div id="nav-search-form" class="form-group">
+                        <input id="nav-search-input" type="text" class="form-control" placeholder="Search" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                        <label id="nav-search-label" for="search-input"><a href="#"><i class="fa fa-search fa-1x" aria-hidden="true"></i><span class="sr-only">Search icons</span></a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container profile">
+        <div class="row profile-row">
+            <div class="col-xs-offset-1 col-xs-3 profile-photo">
+                <a href="#gallery2"><img class="modalthumb img-responsive" src="assets/images/kucw.jpg" />
+                </a>
+            </div>
+            <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" type="button" data-dismiss="modal">×</button>
+                            <h3 class="modal-title">kucw</h3>
+                        </div>
+                        <div class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="intro" class="col-xs-offset-1 col-xs-6">
+                <h2 class="page-header">古君葳 <small>Chun-Wei Ku (kucw)</small></h2>
+                <h3><span class="glyphicon glyphicon-globe"></span> Contact</h3>
+                <p>r04922133@ntu.edu.tw</p>
+                <div class="media">
+                    <a class="pull-left" href="https://www.facebook.com/pk74323jacky" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank">
+                        <img class="img-circle link-img" src="assets/images/facebook.jpg" />
+                    </a>
+                    <a class="pull-left" href="#" data-toggle="tooltip" data-placement="top" title="Google+" target="_blank">
+                        <img class="img-circle link-img" src="assets/images/googleplus.jpg" />
+                    </a>
+                    <a class="pull-left" href="#" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank">
+                        <img class="img-circle link-img" src="assets/images/twitter.png" />
+                    </a>
+                    <a class="pull-left" href="https://github.com/kucw" data-toggle="tooltip" data-placement="top" title="Github" target="_blank">
+                        <img class="img-circle link-img" src="assets/images/github.jpg" />
+                    </a>
+                    <a class="pull-left" href="https://www.instagram.com/chunwei_ku/" data-toggle="tooltip" data-placement="top" title="Instagram" target="_blank">
+                        <img class="img-circle link-img" src="assets/images/instgram.png" />
+                    </a>
+                </div>
+                <h3><span class="glyphicon glyphicon-map-marker"></span> Location</h3>
+                <p>Taipei, Taiwan</p>
+                <h3 data-toggle="collapse" data-target="#paper1"><span class="glyphicon glyphicon-star"></span> Favorite article<small> [click me]</small></h3>
+                <div id="paper1" class="row collapse">
+                    <div class="col-md-6">
+                        <div class="box" style="height:400px;">
+                            <a href="http://niniblue.pixnet.net/blog/post/200863947">
+                                <img class="img-responsive" src="assets/images/taichun.jpg" alt="" />
+                                <p class="box-title">草悟道微旅行~在地人祕密旅行，專人帶路.輕鬆玩(台中半日遊)</p>
+                                <div class="box-tag-list">
+                                    <button>草悟道</button>
+                                    <button>勤美誠品</button>
+                                    <button>台中輕旅行</button>
+                                    <button>日出乳酪蛋糕</button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

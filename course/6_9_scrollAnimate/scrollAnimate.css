@@ -1,0 +1,45 @@
+.container {
+    height: 1000px;
+}
+
+.slideanimate {
+    visibility: hidden;
+}
+
+.slide {
+    /*    specify animate effect*/
+    animation-name: animation01;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes animation01 {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        background-color: bisque;
+        text-align: center;
+    }
+    p {
+        color: blue;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .col-sm-4 {
+        background-color: gray;
+        font-size: 48px;
+    }
+    p {
+        color: red;
+    }
+}

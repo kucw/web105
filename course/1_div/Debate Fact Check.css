@@ -1,0 +1,45 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.speaker {
+    font-size: 20px;
+}
+
+.gop {
+    color: red;
+    background-color: pink;
+}
+
+.dem {
+    color: blue;
+    background-color: lightcyan;
+}
+
+.annotation {
+    margin-left: 100px;
+}
+
+.after > p {
+    margin-left: 100px;
+}
+
+.gop + p {
+    background-color: pink;
+}
+
+.dem + p {
+    background-color: lightcyan;
+}
+
+.unread {
+    margin-left: 100px;
+    background-color: lightgray;
+}
+
+.fact-checked {
+    text-decoration: none;
+    background: url(../assets/yellow.png) repeat-x 100% 100%;
+    padding-bottom: 0px;
+    font-weight: bold;
+}

@@ -1,0 +1,13 @@
+.space{
+    min-height: 900px;
+    background-color: dimgray;
+    color: white;
+
+}
+.jumbotron{
+    min-height: 200px;
+}
+
+.container{
+    border-radius: 5px;
+}
