@@ -1,0 +1,177 @@
+body {
+    color: #151719;
+    background-color: #f2f2f2;
+    font-family: Hoefler Text,Songti TC,serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+    word-wrap: break-word;
+}
+
+#header-container {
+  position: relative;
+  margin: 0 auto;
+  width: 960px;
+  height: 200px;
+}
+
+a {
+  margin: 0 auto 0 0;
+}
+
+.author-name {
+  display: inline;
+    color: #838383;
+    font-size: 14px;
+    vertical-align: 5px;
+}
+
+svg {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  pointer-events: none;
+}
+
+canvas {
+  position: absolute;
+  top: 80px;
+  left: 0;
+}
+
+#text-container {
+  position: absolute;
+  top: 170px;
+  left: 100px;
+  font-size: 20px;
+  line-height: 1.882;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  width: 300px;
+  pointer-events: none;
+}
+
+#prologue {
+  width: inherit;
+  font-size: 20px;
+  line-height: 1.882;
+}
+
+#prologue a {
+  border-bottom: 2px solid #3ebde0;
+  padding-bottom: 4px;
+  color: #151719;
+  text-decoration: none;
+}
+
+#text-container img {
+  display: block;
+  margin: 10px auto;
+}
+
+.button {
+  pointer-events: all;
+  fill: #DF2935;
+  cursor: pointer;
+}
+
+.progress-circle {
+  fill: white;
+  stroke: grey;
+  pointer-events: all;
+  cursor: pointer;
+  stroke-width: 3px;
+}
+
+/*
+#viz-container {
+  position: relative;
+  margin: 30px auto 10px auto;
+  width: 960px;
+  height: 600px;
+}
+*/
+
+.fb-share-button {
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+  #viz-container {
+    width: 450px;
+    height: 600px;
+  }
+  #header-container {
+    width: 450px;
+    height: 200px;
+  }
+  svg {
+    top: 120px;
+  }
+  canvas {
+    top: 220px;
+  }
+  #text-container {
+    position: absolute;
+    top: 470px;
+    left: 0;
+    font-size: 16px;
+    padding: 5px;
+    width: 450px;
+    background-color: #f2f2f2;
+  }
+  #prologue {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  #viz-container {
+    width: 415px;
+    height: 600px;
+  }
+  #header-container {
+    width: 415px;
+    height: 200px;
+  }
+  #text-container {
+    width: 415px;
+  }
+}
+
+@media screen and (max-width: 377px) {
+  #viz-container {
+    width: 376px;
+    height: 600px;
+  }
+  #header-container {
+    width: 376px;
+    height: 200px;
+  }
+  #text-container {
+    width: 376px;
+    top: 455px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  svg {
+    top: 150px;
+  }
+  canvas {
+    top: 250px;
+  }
+  #viz-container {
+    width: 320px;
+    height: 700px;
+  }
+  #header-container {
+    width: 320px;
+    height: 250px;
+  }
+  #text-container {
+    width: 320px;
+    top: 445px;
+  }
+}
+

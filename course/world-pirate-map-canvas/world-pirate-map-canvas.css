@@ -1,0 +1,23 @@
+.container-fluid {
+    padding: 0;
+}
+
+#viz-container {
+    position: fixed;
+    width: 70%;
+    margin-left: 30px;
+}
+
+.text-container-right {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 150px;
+    width: 25%;
+    position: relative;
+    left: 75%;
+    top: 0;
+    bottom: 0;
+    background-color: aliceblue;
+}
+
