@@ -1,0 +1,39 @@
+#chart1 div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+}
+
+
+#svg01 svg rect, #svg02 svg rect, #svg3 svg rect{
+    fill: darkorange;
+}
+#svg01 svg text, #svg02 svg text, #svg03 svg text{
+    fill: white;
+    font: 10px sans-serif;
+    text-anchor: end;
+}
+
+/*svg04*/
+.bar {
+    fill: gray;
+}
+
+.bar:hover {
+    fill: darkorange;
+}
+
+.bar text{
+    fill: #666666;
+    font: 10px sans-serif;
+/*    text-anchor: end;*/
+}
+/*
+#svg04 svg{
+    padding-top: 20px;
+}
+*/
+

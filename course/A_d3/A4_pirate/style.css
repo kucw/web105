@@ -1,0 +1,127 @@
+body {
+    color: #151719;
+    background-color: #f2f2f2;
+    font-family: Hoefler Text, Songti TC, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+    word-wrap: break-word;
+}
+
+a {
+    margin: 0 auto 0 0;
+}
+
+.author-name {
+    display: inline;
+    color: #838383;
+    font-size: 14px;
+    vertical-align: 5px;
+}
+
+svg {
+    position: fixed;
+    width: 100%;
+/*    top: 80px;*/
+    left: 0;
+    pointer-events: none;
+}
+
+canvas {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+
+#text-container {
+    position: absolute;
+    top: 170px;
+    left: 100px;
+    font-size: 20px;
+    line-height: 1.882;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 300px;
+    pointer-events: none;
+}
+
+#prologue {
+    width: inherit;
+    font-size: 20px;
+    line-height: 1.882;
+}
+
+#prologue a {
+    border-bottom: 2px solid #3ebde0;
+    padding-bottom: 4px;
+    color: #151719;
+    text-decoration: none;
+}
+
+#text-container img {
+    display: block;
+    margin: 10px auto;
+}
+
+.button {
+    pointer-events: all;
+    fill: #DF2935;
+    cursor: pointer;
+}
+
+.progress-circle {
+    fill: white;
+    stroke: grey;
+    pointer-events: all;
+    cursor: pointer;
+    stroke-width: 3px;
+}
+
+#viz-container {
+    position: fixed;
+    margin: 30px auto 10px auto;
+    width: 960px;
+    height: 600px;
+    z-index: -1;
+}
+
+.fb-share-button {
+    display: inline-block;
+}
+
+
+.container-fluid{
+    padding:0;
+}
+ section{
+/*     float:left; */
+     width:100%;
+     position:relative;
+     left: 0;
+     top: 50%;
+     bottom:0;
+}
+.screen1{background-color:rgba(170,170,170,0.8);}
+.screen2{background-color:rgba(150,150,150,0.8);}
+.screen3{background-color:rgba(130,130,130,0.8);}
+.screen4{background-color:rgba(110,110,110,0.8);}
+.screen5{background-color:rgba(100,100,100,0.8);}
+.screen6{background-color:rgba(90,90,90,0.8);}
+h1{
+    position: absolute;
+    text-align:center; 
+    color:#ff0000; 
+    left: 50%;
+    top: 50%;
+/*    margin:25% 0 0 0;*/
+}
+section p{
+    font-size: 160%;
+    font-family: sans-serif;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+}

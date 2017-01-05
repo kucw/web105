@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="d381.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron"></div>
+    </div>
+
+
+
+    <div id="chart0" class="container">
+        <h1>Chart 0: d3.js sandbox</h1>
+    </div>
+
+
+
+    <div id="chart1" class="container">
+        <h1>Plotting by styling html div</h1>
+        <div style="width: 40px;">4</div>
+        <div style="width: 80px;">8</div>
+        <div style="width: 150px;">15</div>
+        <div style="width: 160px;">16</div>
+        <div style="width: 230px;">23</div>
+        <div style="width: 420px;">42</div>
+    </div>
+
+
+    <div id="chart2" class="container">
+        <h1>Chart2: Generating html by d3</h1>
+    </div>
+
+    <div id="chart3" class="container">
+        <h1>Chart3: Rescaling bar width by d3</h1>
+    </div>
+
+
+
+    <div id="svg01" class="container">
+        <h1>svg01: displaying data by svg manually</h1>
+        <svg width="420" height="40">
+            <g transform="translate(0,0)">
+                <rect width="40" height="19"></rect>
+                <text x="37" y="9.5" dy=".35em">4</text>
+            </g>
+            <g transform="translate(0,20)">
+                <rect width="80" height="19"></rect>
+                <text x="77" y="9.5" dy=".35em">8</text>
+            </g>
+        </svg>
+    </div>
+
+
+    <div id="svg02" class="container">
+        <h1>svg02: Generating svg by d3.js</h1>
+        <svg></svg>
+    </div>
+
+
+    <div id="svg03" class="container">
+        <h1>svg03: read csv by d3.js</h1>
+        <svg></svg>
+    </div>
+
+
+    <div id="svg04" class="container">
+        <h1>svg04: Designing vertical barchart</h1>
+        <svg></svg>
+    </div>
+
+
+    <script src="d381.js"></script>
+</body>
+
+</html>
