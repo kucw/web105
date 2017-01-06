@@ -17,27 +17,50 @@ body {
 
 #sales {
     background-image: url(../images/sales.png);
-/*    background-attachment: fixed;*/
+    /*    background-attachment: fixed;*/
     height: 900px;
 }
 
 #chart {
     background-image: url(../images/chart.png);
-    height: 1000px;
+    height: 1250px;
 }
 
 #but {
-/*    margin-top: 200px;*/
+    /*    margin-top: 200px;*/
     background-image: url(../images/intro.png);
     height: 450px;
 }
 
 #professor {
-    background-image: url(../images/cover.png);
-    height: 1900px;
+    background-color: #b3efff;
+    height: 700px;
 }
 
+#professor .row {
+    padding-top: 80px;
+    height: 700px;
+}
 
+#professor .row .col-sm-3 {
+    padding: 5;
+}
+
+#p1 {
+    padding-top: 20px;
+}
+
+#p1_textbox {
+    padding-top: 40px;
+}
+
+#p2 {
+    padding-top: 320px;
+}
+
+#p2_textbox {
+    padding-top: 150px;
+}
 
 
 /*
