@@ -1,40 +1,200 @@
+/*****************
+*    body
+*****************/
+
 body {
     font-family: Microsoft JhengHei, sans-serif;
     font-size: 16px;
     position: relative;
 }
 
+
+/*****************
+*    cover
+*****************/
+
 #cover {
-    background-image: url(../images/cover.png);
+    background-image: url(../images/cover2.png);
     background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 700px;
 }
+
+
+/*****************
+*    intro
+*****************/
 
 #intro {
     background-image: url(../images/intro.png);
-    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 385px;
 }
+
+#intro-text {
+    font-size: 24px;
+    color: white;
+    padding-top: 90px;
+}
+
+
+/*****************
+*    sales
+*****************/
 
 #sales {
-    background-image: url(../images/sales.png);
-    /*    background-attachment: fixed;*/
-    height: 900px;
+    background-color: #b3efff;
+    height: 780px;
 }
 
+#sales-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+#sales-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+    visibility: hidden;
+}
+
+#svg-sales {
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+#ggr-april {
+    position: absolute;
+    left: 0;
+    margin-left: 660px;
+    margin-top: -380px;
+    visibility: hidden;
+}
+
+#ggr-may {
+    position: absolute;
+    left: 0;
+    margin-left: 735px;
+    margin-top: -300px;
+    visibility: hidden;
+}
+
+#ggr-june {
+    position: absolute;
+    left: 0;
+    margin-left: 960px;
+    margin-top: -220px;
+    visibility: hidden;
+}
+
+#ggr-july {
+    position: absolute;
+    left: 0;
+    margin-left: 1010px;
+    margin-top: -140px;
+    visibility: hidden;
+}
+
+.move-april {
+    animation-name: move-april;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.250, 0.100, 0.340, 0.915);
+}
+
+@keyframes move-april {
+    from {
+        transform: translate3d(-410%, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.move-may {
+    animation-name: move-may;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.250, 0.100, 0.340, 0.915);
+}
+
+@keyframes move-may {
+    from {
+        transform: translate3d(-480%, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.move-june {
+    animation-name: move-june;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.250, 0.100, 0.340, 0.915);
+}
+
+@keyframes move-june {
+    from {
+        transform: translate3d(-680%, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.move-july {
+    animation-name: move-july;
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.250, 0.100, 0.340, 0.915);
+}
+
+@keyframes move-july {
+    from {
+        transform: translate3d(-725%, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+
+/*****************
+*    chart
+*****************/
+
 #chart {
-    background-image: url(../images/chart.png);
-    height: 1250px;
+    background-image: url(../images/pie.png);
+    background-size: 1280px 800px;
+    background-position: 0px 0px;
+    height: 1300px;
+    background-repeat: no-repeat;
 }
 
 #but {
-    /*    margin-top: 200px;*/
     background-image: url(../images/intro.png);
-    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 385px;
 }
+
+#but-text {
+    font-size: 24px;
+    color: white;
+    padding-top: 140px;
+}
+
+
+/*****************
+*    professor
+*****************/
 
 #professor {
     background-color: #b3efff;
-    height: 700px;
+    height: 760px;
 }
 
 #professor .row {
@@ -46,124 +206,100 @@ body {
     padding: 5;
 }
 
-#p1 {
+#p1-img {
     padding-top: 20px;
-}
-
-#p1_textbox {
-    padding-top: 40px;
-}
-
-#p2 {
-    padding-top: 320px;
-}
-
-#p2_textbox {
-    padding-top: 150px;
-}
-
-
-/*
-
-    // old assets
-
-.section-cover {
-    background-image: url(../images/introcover.jpg);
-    width: auto;
-    height: 600px;
-    overflow: hidden;
-    margin-bottom: 0px;
-    background-size: cover;
-}
-
-#intro-cover-text {
-    padding-left: 350px;
-    padding-top: 200px;
-    opacity: 1;
-    color: #838383;
-}
-
-.section1 {
-    background-color: white;
-    padding-top: 30px;
-    padding-bottom: 30p;
-}
-
-#intro-section1-text {
     visibility: hidden;
+}
+
+#p1-name {
+    font-size: 18px;
     text-align: center;
-}
-
-#intro-section1-image {
-    visibility: hidden;
-    padding-top: 20px;
-}
-
-.section2 {
-    background-color: #f7f7f7;
-    padding-left: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-#intro-section2-tag1 {
-    visibility: hidden;
-    height: 300px;
-    z-index: -5;
-    padding-top: 20px;
-}
-
-#intro-section2-tag2 {
-    visibility: hidden;
-    height: 300px;
-    padding-top: 20px;
-    margin-left: -60px;
-    animation-delay: 0.3s;
-    z-index: -3;
-}
-
-#intro-section2-tag3 {
-    visibility: hidden;
-    height: 300px;
-    padding-top: 20px;
-    margin-left: -60px;
-    animation-delay: 0.6s;
-    z-index: -1;
-}
-
-#intro-section2-text {
-    visibility: hidden;
-    animation-delay: 0.5s;
-    text-align: center;
-    padding-top: 70px;
-}
-
-.section3 {
-    background-image: url(../images/Beach.jpg);
-    background-attachment: fixed;
-    height: 1000px;
-    padding-top: 30px;
-    padding-bottom: 30p;
-}
-
-#intro-section3-text {
-    margin-top: 500px;
-    text-align: center;
+    margin-top: 10px;
+    background-color: #12337c;
     color: white;
-}
-
-.section4 {
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#intro-section4-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
     visibility: hidden;
+}
+
+#p1-textbox {
+    margin-top: 40px;
+    visibility: hidden;
+}
+
+#p1-text {
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 60px;
+    width: 200px;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+#p2-img {
+    margin-top: 320px;
+    visibility: hidden;
+}
+
+#p2-name {
+    font-size: 18px;
     text-align: center;
-    margin-top: 120px;
-}
-
-#intro-section4-image {
+    margin-top: 10px;
+    background-color: #12337c;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
     visibility: hidden;
 }
-*/
+
+#p2-textbox {
+    margin-top: 150px;
+    visibility: hidden;
+}
+
+#p2-text {
+    position: absolute;
+    margin-top: -275px;
+    margin-left: 30px;
+    width: 200px;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+
+/*****************
+*    price
+*****************/
+
+#price {
+    background-color: #66cef2;
+    height: 700px;
+}
+
+
+/*****************
+*    station
+*****************/
+
+#station {
+    background-color: #b3efff;
+    height: 700px;
+}
+
+
+/*****************
+*    end
+*****************/
+
+#end {
+    background-image: url(../images/intro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 385px;
+}
+
+#end-text {
+    font-size: 24px;
+    color: white;
+    padding-top: 100px;
+}

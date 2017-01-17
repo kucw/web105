@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>D3 Page Template</title>
+    <script type="text/javascript" src="assets/js/d3.v3.js"></script>
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <style type="text/css">
+        .svg-text {
+            font-family: "sans-serif";
+            font-size: 30px;
+            fill: grey;
+        }
+        /*
+        .svg-april {
+            visibility: hidden;
+        }
+        
+        .svg-may {
+            visibility: hidden;
+        }
+        
+        .svg-june {
+            visibility: hidden;
+        }
+        
+        .svg-july {
+            visibility: hidden;
+        }
+        */
+    </style>
+</head>
+
+<body>
+    <p id="time"></p>
+    <svg id="Qgogoro" x="0px" y="0px" height="50px" width="80px" viewBox="0 0 131 79" style="enable-background:new 0 0 131 79;">
+        <g>
+            <path style="fill:#12337C;" d="M63.856,24.397c0,0,2.666-5.337-2.113-8.181c0,0-47.596-1.938-46.068,8.46
+		c0,0-1.444,5.909,6.608,5.092L63.856,24.397z" />
+            <path style="fill:#12337C;" d="M85.366,8.514c0,0-8.523,1.668-3.521,4.632l4.818-2.316C86.663,10.83,87.92,7.784,85.366,8.514z" />
+            <path style="fill:#12337C;" d="M102.042,0.905v9.526C102.042,10.431,107.415,6.352,102.042,0.905z" />
+            <circle style="fill:#12337C;" cx="21.629" cy="62.802" r="15.565" />
+            <circle style="fill:#B3EFFF;" cx="20.888" cy="62.987" r="11.858" />
+            <path style="fill:#12337C;" d="M86.972,7.588c0,0,1.729,0.443,1.359,3.186h2.038c0,0,8.708,29.794,0,39.8
+		c0,0-13.897,16.861-35.575,3.891c0,0-12.97-9.82,8.338-25.013c0,0,1.668-1.297,0.556-2.964l-45.024,5.188
+		c0,0-20.752,12.97-17.416,24.457c0,0,16.304,7.411,40.206,5.744c0,0,33.351,19.455,55.585-7.782c0,0-3.705,10.746,0,8.894
+		c0,0,12.413-21.307,30.942-7.04c0,0,3.335,4.076,1.668-3.15c0,0-5.681-14.022-22.975-7.597c0,0-1.482-17.046-10.561-32.795
+		c0,0-0.742-4.446,4.076-2.594l-0.185-9.079c0,0-2.964-1.888-6.299,4.077L86.972,7.588z" />
+            <circle style="fill:#12337C;" cx="113.807" cy="62.987" r="15.565" />
+            <circle style="fill:#B3EFFF;" cx="113.807" cy="62.802" r="11.858" />
+            <circle style="fill:#12337C;" cx="113.807" cy="63.265" r="8.06" />
+            <circle style="fill:#12337C;" cx="21.351" cy="63.265" r="8.06" />
+            <path style="fill:#12337C;stroke:#B3EFFF;stroke-width:3;stroke-miterlimit:10;" d="M11.08,43.739
+		c1.602-2.319,3.559-4.361,6.021-5.966c5.605-3.654,12.305-5.576,18.98-4.357c0,0,10.932,1.221,12.229,12.711
+		c0,0,1.112,12.416-7.041,12.045c0,0-38.165,2.961-33.537-8.153C8.658,47.794,9.746,45.67,11.08,43.739z" />
+        </g>
+    </svg>
+    <script type="text/javascript">
+        updateClock(); // initial call
+
+        function updateClock() {
+            var now = new Date(), // current date
+                months = ['January', 'February', '...']; // you get the idea
+            time = now.getHours() + ':' + now.getMinutes() + ":" + now.getSeconds(), // again, you get the idea
+
+                // a cleaner way than string concatenation
+                date = [now.getDate(),
+                        months[now.getMonth()],
+                        now.getFullYear()].join(' ');
+
+            // set the content of the element with the ID time to the formatted string
+            document.getElementById('time').innerHTML = [date, time].join(' / ');
+
+            // call this function again in 1000ms
+            setTimeout(updateClock, 1000);
+        }
+
+        var w = 1200;
+        var h = 400;
+        var xPadding = 140;
+        var yPadding = 70;
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h)
+
+        // div-bar
+        svg.append("rect")
+            .attr({
+                x: xPadding - 20,
+                y: yPadding - 15,
+                height: 200,
+                width: 10
+            })
+
+        // text
+        svg.append("text")
+            .text("四月")
+            .attr({
+                x: xPadding - 100,
+                y: yPadding + 20,
+                class: "svg-text"
+            });
+
+        svg.append("text")
+            .text("五月")
+            .attr({
+                x: xPadding - 100,
+                y: yPadding + 20,
+                class: "svg-text"
+            });
+
+        svg.append("text")
+            .text("六月")
+            .attr({
+                x: xPadding - 100,
+                y: yPadding + 20,
+                class: "svg-text"
+            });
+
+        svg.append("text")
+            .text("七月")
+            .attr({
+                x: xPadding - 100,
+                y: yPadding + 20,
+                class: "svg-text"
+            });
+        
+        
+        // rects
+        svg.selectAll("rect.svg-april")
+            .data(d3.range(18))
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return i * 25 + xPadding;
+                },
+                y: function (d, i) {
+                    return yPadding;
+                },
+                height: function (d, i) {
+                    return 10;
+                },
+                width: function (d, i) {
+                    return 15;
+                },
+                class: "svg-april"
+            });
+
+        svg.selectAll("rect.svg-may")
+            .data(d3.range(21))
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return i * 25 + xPadding;
+                },
+                y: function (d, i) {
+                    return yPadding + 50;
+                },
+                height: function (d, i) {
+                    return 10;
+                },
+                width: function (d, i) {
+                    return 15;
+                },
+                class: "svg-may"
+            });
+
+        svg.selectAll("rect.svg-june")
+            .data(d3.range(30))
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return i * 25 + xPadding;
+                },
+                y: function (d, i) {
+                    return yPadding + 100;
+                },
+                height: function (d, i) {
+                    return 10;
+                },
+                width: function (d, i) {
+                    return 15;
+                },
+                class: "svg-june"
+            });
+
+        svg.selectAll("rect.svg-july")
+            .data(d3.range(32))
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return i * 25 + xPadding;
+                },
+                y: function (d, i) {
+                    return yPadding + 150;
+                },
+                height: function (d, i) {
+                    return 10;
+                },
+                width: function (d, i) {
+                    return 15;
+                },
+                class: "svg-july"
+            });
+
+        // draw the gogoro
+        svg.append("path")
+
+        // listen to update bar chart
+        d3.select("body")
+            .append("h3")
+            .text("click me")
+            .on("click", function () {
+                //update all rect in this svg
+                svg.selectAll("rect.svg-april")
+                    .transition()
+                    .delay(function (d, i) {
+                        if (i < 15) return i * 200
+                        else return 3000 + (i - 15) * 250;
+                    })
+                    .duration(100)
+                    .attr({
+                        class: "animated fadeInLeft"
+                    });
+
+                svg.selectAll("rect.svg-may")
+                    .transition()
+                    .delay(function (d, i) {
+                        if (i < 17) return i * 170
+                        else return 2890 + (i - 17) * 230;
+                    })
+                    .duration(100)
+                    .attr({
+                        class: "animated fadeInLeft"
+                    });
+
+                svg.selectAll("rect.svg-june")
+                    .transition()
+                    .delay(function (d, i) {
+                        if (i < 23) return i * 120;
+                        else return 2760 + (i - 23) * 200;
+                    })
+                    .duration(100)
+                    .attr({
+                        class: "animated fadeInLeft"
+                    });
+
+                svg.selectAll("rect.svg-july")
+                    .transition()
+                    .delay(function (d, i) {
+                        if (i < 25) return i * 100;
+                        else return 2500 + (i - 25) * 250;
+                    })
+                    .duration(100)
+                    .attr({
+                        class: "animated fadeInLeft"
+                    });
+                    
+                d3.select("#Qgogoro")
+                    .selectAll("g")
+                    .attr("transform", "translate(80,0)");
+                    
+            });
+
+
+
+
+
+        // only the bundary
+        svg.append("rect")
+            .attr({
+                x: 0,
+                y: 0,
+                width: w,
+                height: h,
+                "fill-opacity": 0,
+                stroke: "red",
+                "stroke-width": 5
+            });
+    </script>
+</body>
+
+</html>

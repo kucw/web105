@@ -16,11 +16,15 @@
     <!-- Waypoints js -->
     <script src="assets/js/jquery.waypoints.js"></script>
 
+    <!-- D3.js -->
+    <script type="text/javascript" src="assets/js/d3.v3.js"></script>
+
     <!-- custom css-->
     <link rel="stylesheet" href="assets/css/index.css">
 
     <!-- custom javescript-->
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/svg_sales.js"></script>
 
 </head>
 
@@ -30,16 +34,41 @@
 
     <div id="intro" class="container-fluid">
 
+        <div class="row">
+            <div id="intro-text" class="col-sm-8 col-sm-offset-2">
+                <p>電動機車品牌 gogoro 從2015年七月推出至今，前瞻的理念與創辦人本身的光環，都讓品牌備受矚目。產品本身則以高質感材料打造，具設計感的外型以及標榜125cc機車的馬力，都讓 gogoro 扭轉了大家對電動車的既有印象。電動車不再只是緩慢、家居型態的代步工具，它可以同時兼具造型與速度。而不同於加油的換電池形式，更期望能帶動整個城市的改變。</p>
+            </div>
+        </div>
     </div>
 
     <div id="sales" class="container-fluid">
-
+        <p id="sales-title">gogoro每月銷售量
+            <p>
+                <p id="sales-text">gogoro 目前在電動機車的銷售中排行第一，單月最高銷量達到1312台。
+                    <br/>表格顯示的是2016年4~7月的每月銷售量（單位：輛）</p>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <svg id="svg-sales"></svg>
+                    </div>
+                    <div class="col-sm-3">
+                        <h1 style="margin-top:200px; visibility: hidden;">hello</h1>
+                    </div>
+                </div>
+                <img id="ggr-april" src="assets/images/qggr.png">
+                <img id="ggr-may" src="assets/images/qggr.png">
+                <img id="ggr-june" src="assets/images/qggr.png">
+                <img id="ggr-july" src="assets/images/qggr.png">
     </div>
 
     <div id="chart" class="container-fluid">
     </div>
 
     <div id="but" class="container-fluid">
+        <div class="row">
+            <div id="but-text" class="col-sm-8 col-sm-offset-2">
+                <p>gogoro 在電動機車界佔有率第一，但它實際的銷售卻面臨層層困難。超出一般機車的過高價格，以及受地理位置限制的換電方式，都不斷遭受質疑。</p>
+            </div>
+        </div>
     </div>
 
     <div id="professor" class="container-fluid">
@@ -47,18 +76,39 @@
             <div class="col-sm-1"></div>
             <!--  p1  -->
             <div class="col-sm-2">
-                <img id="p1" class="img-responsive" src="assets/images/p1.png">
+                <img id="p1-img" class="img-responsive" src="assets/images/p1.png">
+                <p id="p1-name">大同大學工業設計系
+                    <br/>朱柏穎 教授</p>
             </div>
             <div class="col-sm-3">
-                <img id="p1_textbox" class="img-responsive" src="assets/images/p1_textbox.png">
+                <img id="p1-textbox" class="img-responsive" src="assets/images/p1_textbox.png">
+                <p id="p1-text">電動車跟傳統加油比起來還是比較花時間，電池的續航力也是個問題。此外，整體產業是否有能力讓電動車持續發展，都是電動車目前銷售上會遇到的困境。</p>
             </div>
 
             <!--  p2  -->
             <div class="col-sm-3">
-                <img id="p2_textbox" class="img-responsive" src="assets/images/p2_textbox.png">
+                <img id="p2-textbox" class="img-responsive" src="assets/images/p2_textbox.png">
+                <p id="p2-text">gogoro 的設備、保養方式，還有整體騎乘的感受都和一般機車有很大的不同，目前售價已經調整成和一般機車差不多了。至於換電站問題，隨著建置地區擴張，換電站的數目也在不斷增加中。</p>
             </div>
             <div class="col-sm-2">
-                <img id="p2" class="img-responsive" src="assets/images/p2.png">
+                <img id="p2-img" class="img-responsive" src="assets/images/p2.png">
+                <p id="p2-name">gogoro行銷總監
+                    <br/>馬方哲 總監</p>
+            </div>
+        </div>
+    </div>
+    <div id="price" class="container-fluid">
+        <p>價格長條圖</p>
+    </div>
+
+    <div id="station" class="container-fluid">
+
+    </div>
+
+    <div id="end" class="container-fluid">
+        <div class="row">
+            <div id="end-text" class="col-sm-8 col-sm-offset-2">
+                <p>gogoro 目前還只屬於萌芽階段，銷量和傳統機車相比確實落差很大，推行過程也並非一帆風順，但不可否認，它的品牌形象有成功建立起來，認知度也逐漸增加。從環保的角度，電動車雖是一個可嘗試的新選擇，但要如何突破一般機車騎士的使用習慣，還有很長的一段路要走。</p>
             </div>
         </div>
     </div>
