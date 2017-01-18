@@ -3,9 +3,10 @@ $(function () {
     // set height of cover
     $('#cover').css("height", $(window).height());
 
-    // for google map 
+    // shift to meet the height of screen
     var googlemap_shift = ($(window).height() - $("#google-map").height()) / 2;
-    var count = 200;
+    $('#station').find("#google-map")
+                .css("margin-top", googlemap_shift + "px");
 
     $(window).scroll(function () {
         //=====================================
@@ -15,6 +16,8 @@ $(function () {
         var width = $(window).width();
         var height = $(window).height();
         var rate = width * 830 / 1280;
+        
+        if (height > 736) height = 736;
 
         if ($('#chart').position().top < scroll_position - (736 - height)) {
             $('#chart').css("background-attachment", "fixed")
@@ -36,12 +39,9 @@ $(function () {
         var width = $(window).width();
         var height = $(window).height();
 
-
         if (station_top < scroll_position && station_bottom - height > scroll_position) {
             $('#station').find("#google-map")
-                .css("margin-top", scroll_position - station_top + 30 + (200 - count) + "px");
-            if (200-count < googlemap_shift - 30)
-                count = count - 5;
+                .css("margin-top", scroll_position - station_top + googlemap_shift + "px");
         }
     });
 
