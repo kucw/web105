@@ -20,7 +20,7 @@
     <script type="text/javascript" src="assets/js/d3.v3.js"></script>
 
     <!-- Google map javascript api key -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMdO7E7qAJnpWl7hTt6BgOC5jVk-1nnhw&callback=init" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMdO7E7qAJnpWl7hTt6BgOC5jVk-1nnhw&callback=initMap" async defer></script>
 
     <!-- custom css-->
     <link rel="stylesheet" href="assets/css/index.css">
@@ -50,7 +50,7 @@
         <p id="sales-title">gogoro每月銷售量
             <p>
                 <p id="sales-text">gogoro 目前在電動機車的銷售中排行第一，單月最高銷量達到1312台。
-                    <br/>表格顯示的是2016年4~7月的每月銷售量（單位：輛）</p>
+                    <br/>圖表顯示的是2016年4~7月的每月銷售量</p>
                 <div class="row">
                     <div class="col-sm-9">
                         <svg id="svg-sales"></svg>
@@ -111,11 +111,11 @@
 
     <div id="station" class="container-fluid">
         <div class="row">
-            <div class="col-sm-8">
-                <div id="google-map"></div>
+            <div class="col-sm-8 col-sm-offset-1">
+                <div id="map"></div>
             </div>
-            <div class="col-sm-4">
-                <p id="station-taipei">台北有xxx座發電站</p>
+            <div class="col-sm-3">
+                <p id="station-text"></p>
             </div>
         </div>
 

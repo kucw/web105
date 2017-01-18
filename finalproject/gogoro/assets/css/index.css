@@ -54,14 +54,12 @@ body {
     text-align: center;
     margin-top: 80px;
     font-weight: bold;
-    visibility: hidden;
 }
 
 #sales-text {
     font-size: 24px;
     text-align: center;
     margin-top: 40px;
-    visibility: hidden;
 }
 
 #svg-sales {
@@ -283,16 +281,21 @@ body {
 
 #station {
     background-color: #b3efff;
-    height: 2000px;
+    height: 700px;
 }
 
-#google-map {
-    margin-top: 30px;
+#map {
+    margin-top: 50px;
     height: 600px;
 }
 
-#station-taipei {
-    margin-top: 800px;
+#station-text{
+    background-color: #f2f2f2;
+    font-size: 18px;
+    color: black;
+    margin-top: 70px;
+    padding-top: 10px;
+    
 }
 
 
@@ -342,7 +345,7 @@ body {
 }
 
 #footer {
-    margin-left: 50px;
+    margin-left: 100px;
     line-height: 15px;
     font-size: 18px;
     color: white;

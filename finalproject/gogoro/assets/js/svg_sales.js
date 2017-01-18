@@ -63,7 +63,7 @@ $(function () {
     svg.append("text")
         .text("677")
         .attr({
-            x: 480,
+            x: 462,
             y: 70,
             class: "number",
             "font-family": "sans-serif",
@@ -72,9 +72,20 @@ $(function () {
             "visibility": "hidden"
         });
     svg.append("text")
+        .text("輛")
+        .attr({
+            x: 515,
+            y: 70,
+            class: "number",
+            "font-family": "sans-serif",
+            "font-size": "20px",
+            "fill": "#12337c",
+            "visibility": "hidden"
+        });
+    svg.append("text")
         .text("746")
         .attr({
-            x: 555,
+            x: 537,
             y: 150,
             class: "number",
             "font-family": "sans-serif",
@@ -83,9 +94,20 @@ $(function () {
             "visibility": "hidden"
         });
     svg.append("text")
+        .text("輛")
+        .attr({
+            x: 590,
+            y: 150,
+            class: "number",
+            "font-family": "sans-serif",
+            "font-size": "20px",
+            "fill": "#12337c",
+            "visibility": "hidden"
+        });
+    svg.append("text")
         .text("1204")
         .attr({
-            x: 765,
+            x: 745,
             y: 230,
             class: "number",
             "font-family": "sans-serif",
@@ -94,9 +116,20 @@ $(function () {
             "visibility": "hidden"
         });
     svg.append("text")
-        .text("1312")
+        .text("輛")
         .attr({
             x: 815,
+            y: 230,
+            class: "number",
+            "font-family": "sans-serif",
+            "font-size": "20px",
+            "fill": "#12337c",
+            "visibility": "hidden"
+        });
+    svg.append("text")
+        .text("1312")
+        .attr({
+            x: 795,
             y: 310,
             class: "number",
             "font-family": "sans-serif",
@@ -104,6 +137,18 @@ $(function () {
             "fill": "#12337c",
             "visibility": "hidden"
         });
+    svg.append("text")
+        .text("輛")
+        .attr({
+            x: 865,
+            y: 310,
+            class: "number",
+            "font-family": "sans-serif",
+            "font-size": "20px",
+            "fill": "#12337c",
+            "visibility": "hidden"
+        });
+
 
     // rects
     svg.selectAll("rect.april")

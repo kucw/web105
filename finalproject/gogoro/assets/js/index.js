@@ -3,11 +3,6 @@ $(function () {
     // set height of cover
     $('#cover').css("height", $(window).height());
 
-    // shift to meet the height of screen
-    var googlemap_shift = ($(window).height() - $("#google-map").height()) / 2;
-    $('#station').find("#google-map")
-                .css("margin-top", googlemap_shift + "px");
-
     $(window).scroll(function () {
         //=====================================
         // fixed pie chart background-image
@@ -28,34 +23,11 @@ $(function () {
                 .css("background-position", "0px 0px")
                 .css("background-size", width + "px " + rate + "px");
         }
-
-
-        //=====================================
-        // fixed gostation google map
-        //=====================================
-        var scroll_position = $(window).scrollTop();
-        var station_top = $('#station').position().top;
-        var station_bottom = $('#end').position().top;
-        var width = $(window).width();
-        var height = $(window).height();
-
-        if (station_top < scroll_position && station_bottom - height > scroll_position) {
-            $('#station').find("#google-map")
-                .css("margin-top", scroll_position - station_top + googlemap_shift + "px");
-        }
     });
 
 
 
-    $('#sales').waypoint(function () {
-        //update title and text
-        $('#sales').find("#sales-title")
-            .addClass('animated zoomIn')
-            .css("visibility", "visible");
-        $('#sales').find("#sales-text")
-            .addClass('animated zoomIn')
-            .css("visibility", "visible");
-
+    $('#svg-sales').waypoint(function () {
         // update Qggr
         $('#sales').find("#ggr-april")
             .addClass('move-april')
@@ -138,7 +110,7 @@ $(function () {
             });
 
     }, {
-        offset: '40%'
+        offset: '50%'
     });
 
 
@@ -175,16 +147,14 @@ $(function () {
         offset: '40%'
     });
 
-    /*
-    $('.section4').waypoint(function () {
-        $('.section4').find("#intro-section4-image")
-            .addClass('animated rollIn')
-            .css("visibility", "visible");
-        $('.section4').find("#intro-section4-text")
-            .addClass('animated fadeInRight')
-            .css("visibility", "visible");
+    
+    $('#station').waypoint(function () {
+        startDrop();
+        $("#station").find("#station-text")
+            .html("北部<br/>大台北地區、基隆、桃竹苗<br/>223座");
     }, {
-        offset: '60%'
+        offset: '40%',
+        triggerOnce: true
     });
-    */
+    
 });
