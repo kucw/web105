@@ -14,11 +14,11 @@ body {
 *****************/
 
 #cover {
-    background-image: url(../images/cover2.png);
+    background-image: url(../images/cover.png);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 700px;
+    height: 1280px;
 }
 
 

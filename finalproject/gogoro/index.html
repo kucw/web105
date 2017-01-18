@@ -25,6 +25,7 @@
     <!-- custom javescript-->
     <script src="assets/js/index.js"></script>
     <script src="assets/js/svg_sales.js"></script>
+    <script src="assets/js/svg_price.js"></script>
 
 </head>
 
@@ -47,7 +48,7 @@
                 <p id="sales-text">gogoro 目前在電動機車的銷售中排行第一，單月最高銷量達到1312台。
                     <br/>表格顯示的是2016年4~7月的每月銷售量（單位：輛）</p>
                 <div class="row">
-                    <div class="col-sm-offset-2 col-sm-8">
+                    <div class="col-sm-9">
                         <svg id="svg-sales"></svg>
                     </div>
                 </div>
@@ -95,7 +96,13 @@
         </div>
     </div>
     <div id="price" class="container-fluid">
-        <p>價格長條圖</p>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <svg id="svg-price"></svg>
+            </div>
+        </div>
+        <p id="hello"></p>
+        <p id="hello2"></p>
     </div>
 
     <div id="station" class="container-fluid">

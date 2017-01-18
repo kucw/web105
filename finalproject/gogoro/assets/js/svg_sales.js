@@ -6,7 +6,7 @@ $(function () {
 
     var svg = d3.select("#svg-sales")
         .attr("width", w)
-        .attr("height", h)
+        .attr("height", h);
 
     // div-bar
     svg.append("rect")
