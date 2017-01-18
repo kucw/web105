@@ -1,5 +1,9 @@
 $(function () {
 
+    // set height of cover
+    $('#cover').css("height", $(window).height());
+
+    // fixed pie chart background-image
     $(window).scroll(function () {
         var scroll_position = $(window).scrollTop();
         var width = $(window).width();
@@ -18,6 +22,7 @@ $(function () {
         }
 
     });
+
 
 
     $('#sales').waypoint(function () {
