@@ -19,6 +19,9 @@
     <!-- D3.js -->
     <script type="text/javascript" src="assets/js/d3.v3.js"></script>
 
+    <!-- Google map javascript api key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMdO7E7qAJnpWl7hTt6BgOC5jVk-1nnhw&callback=init" async defer></script>
+
     <!-- custom css-->
     <link rel="stylesheet" href="assets/css/index.css">
 
@@ -26,6 +29,7 @@
     <script src="assets/js/index.js"></script>
     <script src="assets/js/svg_sales.js"></script>
     <script src="assets/js/svg_price.js"></script>
+    <script src="assets/js/googlemap.js"></script>
 
 </head>
 
@@ -106,7 +110,7 @@
     </div>
 
     <div id="station" class="container-fluid">
-
+        <div id="google-map"></div>
     </div>
 
     <div id="end" class="container-fluid">
@@ -115,8 +119,23 @@
                 <p>gogoro 目前還只屬於萌芽階段，銷量和傳統機車相比確實落差很大，推行過程也並非一帆風順，但不可否認，它的品牌形象有成功建立起來，認知度也逐漸增加。從環保的角度，電動車雖是一個可嘗試的新選擇，但要如何突破一般機車騎士的使用習慣，還有很長的一段路要走。</p>
             </div>
         </div>
+        <img id="end-building" src="assets/images/end_building.png">
+        <img id="end-ggr" src="assets/images/end_ggr.png">
+        <img id="end-line-top" src="assets/images/line.png">
+        <img id="end-line-down" src="assets/images/line.png">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div id="footer">
+                    <p>數據、文字整理｜吳昀庭</p>
+                    <p>美術設計｜吳昀庭</p>
+                    <p>版型編排｜吳昀庭、古君葳</p>
+                    <p>網頁設計｜古君葳</p>
+                    <p>指導｜謝吉隆</p>
+                </div>
+            </div>
+        </div>
     </div>
-
 </body>
+
 
 </html>

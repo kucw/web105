@@ -286,20 +286,62 @@ body {
     height: 700px;
 }
 
+#google-map {
+    margin-top: 50px;
+    width: 800px;
+    height: 600px;
+}
+
 
 /*****************
 *    end
 *****************/
 
 #end {
-    background-image: url(../images/intro.png);
+    /*
+    background-image: url(../images/end.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 385px;
+    */
+    background-color: #12337c;
+    height: 590px;
 }
 
 #end-text {
     font-size: 24px;
     color: white;
-    padding-top: 100px;
+    margin-top: 70px;
+}
+
+#end-building {
+    position: absolute;
+    left: 0;
+    margin-top: -80px;
+}
+
+#end-ggr {
+    position: absolute;
+    left: 0;
+    margin-top: 265px;
+    margin-left: 100px;
+}
+
+#end-line-top {
+    position: absolute;
+    left: 0;
+    margin-top: -200px;
+}
+
+#end-line-down {
+    position: absolute;
+    left: 0;
+    margin-top: 355px;
+}
+
+#footer {
+    margin-left: 50px;
+    line-height: 15px;
+    font-size: 18px;
+    color: white;
+    margin-top: 200px;
 }
