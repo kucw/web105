@@ -110,7 +110,7 @@ $(function () {
             });
 
     }, {
-        offset: '50%'
+        offset: '70%'
     });
 
 
