@@ -3,14 +3,19 @@ $(function () {
     // set height of cover
     $('#cover').css("height", $(window).height());
 
-    // fixed pie chart background-image
+    // for google map 
+    var googlemap_shift = ($(window).height() - $("#google-map").height()) / 2;
+    var count = 200;
+
     $(window).scroll(function () {
+        //=====================================
+        // fixed pie chart background-image
+        //=====================================
         var scroll_position = $(window).scrollTop();
         var width = $(window).width();
         var height = $(window).height();
         var rate = width * 830 / 1280;
 
-        //console.log(height);
         if ($('#chart').position().top < scroll_position - (736 - height)) {
             $('#chart').css("background-attachment", "fixed")
                 .css("background-position", "0px " + -(736 - height) + "px")
@@ -21,6 +26,23 @@ $(function () {
                 .css("background-size", width + "px " + rate + "px");
         }
 
+
+        //=====================================
+        // fixed gostation google map
+        //=====================================
+        var scroll_position = $(window).scrollTop();
+        var station_top = $('#station').position().top;
+        var station_bottom = $('#end').position().top;
+        var width = $(window).width();
+        var height = $(window).height();
+
+
+        if (station_top < scroll_position && station_bottom - height > scroll_position) {
+            $('#station').find("#google-map")
+                .css("margin-top", scroll_position - station_top + 30 + (200 - count) + "px");
+            if (200-count < googlemap_shift - 30)
+                count = count - 5;
+        }
     });
 
 

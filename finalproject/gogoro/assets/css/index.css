@@ -283,13 +283,16 @@ body {
 
 #station {
     background-color: #b3efff;
-    height: 700px;
+    height: 2000px;
 }
 
 #google-map {
-    margin-top: 50px;
-    width: 800px;
+    margin-top: 30px;
     height: 600px;
+}
+
+#station-taipei {
+    margin-top: 1000px;
 }
 
 
