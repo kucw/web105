@@ -2,12 +2,12 @@ var dataset, w, h, xPadding, yPadding, xShift, svg, xScale, yScalel;
 
 $(function () {
     dataset = [128000, 138000];
-    w = 800;
-    h = 500;
+    w = $("#svg-price").width();
+    h = $("#svg-price").width() * 5 / 8;
     xPadding = 50;
     yPadding = 80;
     xShift = 0;
-
+    
     svg = d3.select("#svg-price")
         .attr("width", w)
         .attr("height", h);

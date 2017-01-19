@@ -64,38 +64,39 @@ body {
 
 #svg-sales {
     margin-top: 50px;
-    margin-left: 100px;
+    width: 1020px;
+    height: 400px;
 }
 
 #ggr-april {
     position: absolute;
     left: 0;
-    margin-left: 660px;
-    margin-top: -380px;
+    margin-left: 560px;
+    margin-top: 70px;
     visibility: hidden;
 }
 
 #ggr-may {
     position: absolute;
     left: 0;
-    margin-left: 735px;
-    margin-top: -300px;
+    margin-left: 635px;
+    margin-top: 150px;
     visibility: hidden;
 }
 
 #ggr-june {
     position: absolute;
     left: 0;
-    margin-left: 960px;
-    margin-top: -220px;
+    margin-left: 860px;
+    margin-top: 230px;
     visibility: hidden;
 }
 
 #ggr-july {
     position: absolute;
     left: 0;
-    margin-left: 1010px;
-    margin-top: -140px;
+    margin-left: 910px;
+    margin-top: 310px;
     visibility: hidden;
 }
 
@@ -271,7 +272,11 @@ body {
 
 #price {
     background-color: #66cef2;
-    height: 700px;
+    height: auto;
+}
+
+#svg-price {
+    width: 100%;
 }
 
 
@@ -289,13 +294,12 @@ body {
     height: 600px;
 }
 
-#station-text{
+#station-text {
     background-color: #f2f2f2;
     font-size: 18px;
     color: black;
     margin-top: 70px;
     padding-top: 10px;
-    
 }
 
 

@@ -1,12 +1,25 @@
 $(function () {
 
+    //=============================
+    //      initial setting
+    //=============================
     // set height of cover
     $('#cover').css("height", $(window).height());
 
+    // set position of sales
+    var sales_shift = ($(window).width()-$("#svg-sales").width())/2;
+    $("#svg-sales").css("margin-left", sales_shift);
+    $("#ggr-april").css("margin-left", parseInt($("#ggr-april").css("margin-left")) + sales_shift);
+    $("#ggr-may").css("margin-left", parseInt($("#ggr-may").css("margin-left")) + sales_shift);
+    $("#ggr-june").css("margin-left", parseInt($("#ggr-june").css("margin-left")) + sales_shift);
+    $("#ggr-july").css("margin-left", parseInt($("#ggr-july").css("margin-left")) + sales_shift);
+    
+
+    //=============================
+    //      scroll detection
+    //=============================
     $(window).scroll(function () {
-        //=====================================
         // fixed pie chart background-image
-        //=====================================
         var scroll_position = $(window).scrollTop();
         var width = $(window).width();
         var height = $(window).height();

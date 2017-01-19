@@ -1,6 +1,6 @@
 $(function () {
-    var w = 1000;
-    var h = 400;
+    var w = $("#svg-sales").width();
+    var h = $("#svg-sales").height();
     var xPadding = 100;
     var yPadding = 80;
 
