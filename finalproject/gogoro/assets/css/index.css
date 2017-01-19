@@ -193,11 +193,18 @@ body {
 
 #professor {
     background-color: #b3efff;
-    height: 760px;
+    height: 850px;
+}
+
+#professor-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
 }
 
 #professor .row {
-    padding-top: 80px;
+    padding-top: 30px;
     height: 700px;
 }
 
@@ -274,6 +281,20 @@ body {
     background-color: #66cef2;
     height: auto;
 }
+
+#price-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
+}
+
+#price-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+}
+
 
 #svg-price {
     width: 100%;

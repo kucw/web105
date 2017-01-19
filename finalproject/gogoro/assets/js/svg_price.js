@@ -7,7 +7,7 @@ $(function () {
     xPadding = 50;
     yPadding = 80;
     xShift = 0;
-    
+
     svg = d3.select("#svg-price")
         .attr("width", w)
         .attr("height", h);
@@ -25,7 +25,7 @@ $(function () {
         .attr({
             x: xPadding + xShift,
             y: h - yPadding,
-            height: 10,
+            height: 5,
             width: w - xPadding * 2
         });
 
@@ -35,7 +35,7 @@ $(function () {
             x: xPadding + xShift,
             y: yPadding - 30,
             height: h - yPadding * 2 + 30,
-            width: 10
+            width: 5
         });
 
     // create bars
@@ -99,6 +99,7 @@ $(function () {
             "text-anchor": "middle",
             "font-family": "Microsoft JhengHei, sans-serif",
             "font-size": "24px",
+            "font-weight": "bold",
             "fill": "#12337c",
             class: "x-text"
         });
@@ -139,7 +140,7 @@ function decreasePrice() {
             },
             width: xScale.rangeBand(),
             height: yScale(30000) - yPadding,
-            fill: "#b2b2b2",
+            fill: "#d4d4d4",
             opacity: 0.6,
             class: "price2"
         });
@@ -292,10 +293,7 @@ function addNewType() {
             x: function (d, i) {
                 return xScale(i);
             },
-            width: xScale.rangeBand(),
-            height: function (d) {
-                return yScale(d) - yPadding;
-            }
+            width: xScale.rangeBand()
         });
 
 
@@ -364,6 +362,7 @@ function addNewType() {
             "font-family": "Microsoft JhengHei, sans-serif",
             "font-size": "24px",
             "fill": "#12337c",
+            "font-weight": "bold",
             class: "x-text"
         });
 
@@ -384,6 +383,7 @@ function addNewType() {
 function decreasePriceAgain() {
     // re-create bars, diff bars, numbers
     // because of the z-index of svg is the order of object in the doc
+    
     svg.selectAll("rect.price3")
         .data(dataset)
         .enter()
@@ -397,8 +397,8 @@ function decreasePriceAgain() {
             },
             width: xScale.rangeBand(),
             height: yScale(26000) - yPadding,
-            fill: "#fdffcf",
-            opacity: 0.8,
+            fill: "#b2b2b2",
+            opacity: 0.6,
             class: "price3"
         });
 

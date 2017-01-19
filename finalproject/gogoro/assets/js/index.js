@@ -167,7 +167,7 @@ $(function () {
             startPrice();
         }
     }, {
-        offset: '40%'
+        offset: '5%'
     });
 
 
