@@ -181,7 +181,7 @@ $(function () {
                 .css("visibility", "visible");
         }
     }, {
-        offset: '30%'
+        offset: '45%'
     });
 
 });
