@@ -1,20 +1,22 @@
-$(function () {
-    var dataset = [128000, 138000];
-    var w = 800;
-    var h = 500;
-    var xPadding = 50;
-    var yPadding = 80;
-    var xShift = 0;
+var dataset, w, h, xPadding, yPadding, xShift, svg, xScale, yScalel;
 
-    var svg = d3.select("#svg-price")
+$(function () {
+    dataset = [128000, 138000];
+    w = 800;
+    h = 500;
+    xPadding = 50;
+    yPadding = 80;
+    xShift = 0;
+
+    svg = d3.select("#svg-price")
         .attr("width", w)
         .attr("height", h);
 
-    var xScale = d3.scale.ordinal()
+    xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length))
         .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
 
-    var yScale = d3.scale.linear()
+    yScale = d3.scale.linear()
         .domain([0, d3.max(dataset)])
         .range([yPadding, h - yPadding]);
 
@@ -65,13 +67,13 @@ $(function () {
             return d + "元";
         })
         .attr({
-            "text-anchor": "middle",
             x: function (d, i) {
                 return xScale(i) + xScale.rangeBand() / 2;
             },
             y: function (d) {
                 return h - yScale(d) + 18;
             },
+            "text-anchor": "middle",
             "font-family": "sans-serif",
             "font-size": "16px",
             "fill": "white",
@@ -101,204 +103,756 @@ $(function () {
             class: "x-text"
         });
 
-    //============================================
-    // listen to update bar chart (decrease price)
-    //============================================
-    d3.select("#hello")
-        .text("click me to decrease price")
-        .on("click", function () {
-            dataset = [98000, 108000];
+
+    function startPrice() {
+        alert("hello");
+        decreasePrice();
+
+        window.setTimeout(function () {
+            addNewType();
+        }, 3000);
+
+        window.setTimeout(function () {
+            decreasePriceAgain();
+        }, 3000);
+    }
+
+    function decreasePrice() {
+        // re-create bars, diff bars, labels
+        // because of the z-index of svg is the order of object in the doc
+        svg.selectAll("rect.price2")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: yScale(30000) - yPadding,
+                fill: "#b2b2b2",
+                opacity: 0.8,
+                class: "price2"
+            });
+
+        svg.selectAll("rect.price").remove();
+        svg.selectAll("rect.price")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                },
+                fill: "#12337c",
+                class: "price"
+            });
+
+        svg.selectAll("text.label").remove();
+        svg.selectAll("text.label")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function (d) {
+                return d + "元";
+            })
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                },
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                },
+                "text-anchor": "middle",
+                "font-family": "sans-serif",
+                "font-size": "16px",
+                "fill": "white",
+                class: "label"
+            });
 
 
-            svg.selectAll("rect.price2")
-                .data(dataset)
-                .transition()
-                .duration(500)
-                .attr({
-                    x: function (d, i) {
-                        return xScale(i);
-                    },
-                    y: function (d) {
-                        return h - yScale(d);
-                    },
-                    width: xScale.rangeBand(),
-                    height: function (d) {
-                        return yScale(d) - yPadding;
-                    },
-                    fill: "grey",
-                    class: "price2"
-                });
+        // update dataset    
+        dataset = [98000, 108000];
 
-            svg.selectAll("text.label")
-                .data(dataset)
-                .transition()
-                .duration(500)
-                .attr({
-                    x: function (d, i) {
-                        return xScale(i) + xScale.rangeBand() / 2;
-                    },
-                    y: function (d) {
-                        return h - yScale(d) + 18;
-                    }
-                })
-                .each("end", function () {
-                    svg.selectAll("text.label")
-                        .text(function (d) {
-                            return d + "元";
-                        });
-                })
-        });
+        svg.selectAll("rect.price")
+            .data(dataset)
+            .transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                },
+                fill: "#12337c",
+                class: "price"
+            });
 
 
-
-    //============================================
-    // listen to update bar chart (add new type)
-    //============================================
-    d3.select("#hello2")
-        .text("click me to add new type")
-        .on("click", function () {
-
-            // add lite version into dataset
-            dataset = [98000, 108000, 88000];
-
-            xScale.domain(d3.range(dataset.length))
-                .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
-
-            //====================
-            // update bar
-            //====================
-            // select bars and re-bind data
-            var bars = svg.selectAll("rect.price")
-                .data(dataset);
-
-            //set initial for the new bar
-            bars.enter()
-                .append("rect")
-                .attr({
-                    x: w,
-                    y: function (d) {
-                        return h - yScale(d);
-                    },
-                    width: xScale.rangeBand(),
-                    height: function (d) {
-                        return yScale(d) - yPadding;
-                    },
-                    fill: function (d) {
-                        return "#12337c";
-                    },
-                    class: "price"
-                });
-
-            // update
-            bars.transition()
-                .duration(500)
-                .attr({
-                    x: function (d, i) {
-                        return xScale(i);
-                    },
-                    y: function (d) {
-                        return h - yScale(d);
-                    },
-                    width: xScale.rangeBand(),
-                    height: function (d) {
-                        return yScale(d) - yPadding;
-                    }
-                });
-
-            //====================
-            // update label
-            //====================
-            var labels = svg.selectAll("text.label")
-                .data(dataset);
-
-            // intial
-            labels.enter()
-                .append("text")
-                .text(function (d) {
-                    return d + "元";
-                })
-                .attr({
-                    x: w + xScale.rangeBand() / 2,
-                    y: function (d) {
-                        return h - yScale(d) + 18;
-                    },
-                    "font-family": "sans-serif",
-                    "font-size": "16px",
-                    "fill": "white",
-                    "text-anchor": "middle",
-                    class: "label"
-                });
-
-            // update
-            labels.transition()
-                .duration(500)
-                .attr({
-                    x: function (d, i) {
-                        return xScale(i) + xScale.rangeBand() / 2;
-                    },
-                    y: function (d) {
-                        return h - yScale(d) + 18;
-                    }
-                })
-                .each("end", function () {
-                    labels.text(function (d) {
+        svg.selectAll("text.label")
+            .data(dataset)
+            .transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                },
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                }
+            })
+            .each("end", function () {
+                svg.selectAll("text.label")
+                    .text(function (d) {
                         return d + "元";
                     });
-                })
+            });
+    }
+
+    function addNewType() {
+        // add lite version into dataset
+        dataset = [98000, 108000, 88000];
+
+        xScale.domain(d3.range(dataset.length))
+            .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
+
+        //====================
+        // update bar
+        //====================
+        // select bars and re-bind data
+        var bars = svg.selectAll("rect.price")
+            .data(dataset);
+
+        //set initial for the new bar
+        bars.enter()
+            .append("rect")
+            .attr({
+                x: w,
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                },
+                fill: function (d) {
+                    return "#12337c";
+                },
+                class: "price"
+            });
+
+        // update
+        bars.transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                }
+            });
+
+        //====================
+        // update diff bar
+        //====================
+        svg.selectAll("rect.price2")
+            .data(dataset)
+            .transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                }
+            });
 
 
-            //====================
-            // update x-text
-            //====================
-            var xText = svg.selectAll("text.x-text")
-                .data(dataset);
+        //====================
+        // update label
+        //====================
+        var labels = svg.selectAll("text.label")
+            .data(dataset);
 
-            // intial
-            xText.enter()
-                .append("text")
-                .text(function (d, i) {
-                    if (i == 0) return "標準版";
-                    else if (i == 1) return "PLUS版";
-                    else if (i == 2) return "平價Lite";
-                })
-                .attr({
-                    x: w + xScale.rangeBand() / 2,
-                    y: function (d) {
-                        return h - yPadding + 40;
-                    },
-                    "text-anchor": "middle",
-                    "font-family": "sans-serif",
-                    "font-size": "24px",
-                    "fill": "#12337c",
-                    class: "x-text"
+        // intial
+        labels.enter()
+            .append("text")
+            .text(function (d) {
+                return d + "元";
+            })
+            .attr({
+                x: w + xScale.rangeBand() / 2,
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                },
+                "font-family": "sans-serif",
+                "font-size": "16px",
+                "fill": "white",
+                "text-anchor": "middle",
+                class: "label"
+            });
+
+        // update
+        labels.transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                },
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                }
+            })
+            .each("end", function () {
+                labels.text(function (d) {
+                    return d + "元";
                 });
+            })
 
-            // update
-            xText.transition()
-                .duration(500)
-                .attr({
-                    x: function (d, i) {
-                        return xScale(i) + xScale.rangeBand() / 2;
-                    }
-                });
 
+        //====================
+        // update x-text
+        //====================
+        var xText = svg.selectAll("text.x-text")
+            .data(dataset);
+
+        // intial
+        xText.enter()
+            .append("text")
+            .text(function (d, i) {
+                if (i == 0) return "標準版";
+                else if (i == 1) return "PLUS版";
+                else if (i == 2) return "平價Lite";
+            })
+            .attr({
+                x: w + xScale.rangeBand() / 2,
+                y: function (d) {
+                    return h - yPadding + 40;
+                },
+                "text-anchor": "middle",
+                "font-family": "sans-serif",
+                "font-size": "24px",
+                "fill": "#12337c",
+                class: "x-text"
+            });
+
+        // update
+        xText.transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                }
+            });
+    }
+
+    function decreasePriceAgain() {
+        // re-create bars, diff bars, labels
+        // because of the z-index of svg is the order of object in the doc
+        svg.selectAll("rect.price3")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: yScale(26000) - yPadding,
+                fill: "#ffb6b6",
+                opacity: 0.8,
+                class: "price3"
+            });
+
+        svg.selectAll("rect.price").remove();
+        svg.selectAll("rect.price")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                },
+                fill: "#12337c",
+                class: "price"
+            });
+
+        svg.selectAll("text.label").remove();
+        svg.selectAll("text.label")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function (d) {
+                return d + "元";
+            })
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                },
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                },
+                "text-anchor": "middle",
+                "font-family": "sans-serif",
+                "font-size": "16px",
+                "fill": "white",
+                class: "label"
+            });
+
+
+        // update dataset    
+        dataset = [72000, 82000, 62000];
+
+        svg.selectAll("rect.price")
+            .data(dataset)
+            .transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i);
+                },
+                y: function (d) {
+                    return h - yScale(d);
+                },
+                width: xScale.rangeBand(),
+                height: function (d) {
+                    return yScale(d) - yPadding;
+                },
+                fill: "#12337c",
+                class: "price"
+            });
+
+
+        svg.selectAll("text.label")
+            .data(dataset)
+            .transition()
+            .duration(500)
+            .attr({
+                x: function (d, i) {
+                    return xScale(i) + xScale.rangeBand() / 2;
+                },
+                y: function (d) {
+                    return h - yScale(d) + 18;
+                }
+            })
+            .each("end", function () {
+                svg.selectAll("text.label")
+                    .text(function (d) {
+                        return d + "元";
+                    });
+            });
+    }
+});
+
+function startPrice() {
+    decreasePrice();
+
+    window.setTimeout(function () {
+        addNewType();
+    }, 700);
+
+    window.setTimeout(function () {
+        decreasePriceAgain();
+    }, 3000);
+}
+
+
+//=========================================
+//  decrease price of the bar
+//=========================================
+function decreasePrice() {
+    // re-create bars, diff bars, labels
+    // because of the z-index of svg is the order of object in the doc
+    svg.selectAll("rect.price2")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: yScale(30000) - yPadding,
+            fill: "#b2b2b2",
+            opacity: 0.8,
+            class: "price2"
+        });
+
+    svg.selectAll("rect.price").remove();
+    svg.selectAll("rect.price")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            },
+            fill: "#12337c",
+            class: "price"
+        });
+
+    svg.selectAll("text.label").remove();
+    svg.selectAll("text.label")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "text-anchor": "middle",
+            "font-family": "sans-serif",
+            "font-size": "16px",
+            "fill": "white",
+            class: "label"
         });
 
 
+    // update dataset    
+    dataset = [98000, 108000];
+
+    svg.selectAll("rect.price")
+        .data(dataset)
+        .transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            },
+            fill: "#12337c",
+            class: "price"
+        });
 
 
+    svg.selectAll("text.label")
+        .data(dataset)
+        .transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            }
+        })
+        .each("end", function () {
+            svg.selectAll("text.label")
+                .text(function (d) {
+                    return d + "元";
+                });
+        });
+}
+
+//=========================================
+//  add new bar for the new type
+//=========================================
+function addNewType() {
+    // add lite version into dataset
+    dataset = [98000, 108000, 88000];
+
+    xScale.domain(d3.range(dataset.length))
+        .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
+
+    //===============
+    // update bar
+    //===============
+    // select bars and re-bind data
+    var bars = svg.selectAll("rect.price")
+        .data(dataset);
+
+    //set initial for the new bar
+    bars.enter()
+        .append("rect")
+        .attr({
+            x: w,
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            },
+            fill: function (d) {
+                return "#12337c";
+            },
+            class: "price"
+        });
+
+    // update
+    bars.transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            }
+        });
+
+    //=================
+    // update diff bar
+    //=================
+    svg.selectAll("rect.price2")
+        .data(dataset)
+        .transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            }
+        });
 
 
+    //===============
+    // update label
+    //===============
+    var labels = svg.selectAll("text.label")
+        .data(dataset);
+
+    // intial
+    labels.enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: w + xScale.rangeBand() / 2,
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "font-family": "sans-serif",
+            "font-size": "16px",
+            "fill": "white",
+            "text-anchor": "middle",
+            class: "label"
+        });
+
+    // update
+    labels.transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            }
+        })
+        .each("end", function () {
+            labels.text(function (d) {
+                return d + "元";
+            });
+        })
 
 
-    // only the bundary
-    svg.append("rect").attr({
-        x: 0,
-        y: 0,
-        width: w,
-        height: h,
-        "fill-opacity": 0,
-        stroke: "red",
-        "stroke-width": 5
-    });
-});
+    //===============
+    // update x-text
+    //===============
+    var xText = svg.selectAll("text.x-text")
+        .data(dataset);
+
+    // intial
+    xText.enter()
+        .append("text")
+        .text(function (d, i) {
+            if (i == 0) return "標準版";
+            else if (i == 1) return "PLUS版";
+            else if (i == 2) return "平價Lite";
+        })
+        .attr({
+            x: w + xScale.rangeBand() / 2,
+            y: function (d) {
+                return h - yPadding + 40;
+            },
+            "text-anchor": "middle",
+            "font-family": "sans-serif",
+            "font-size": "24px",
+            "fill": "#12337c",
+            class: "x-text"
+        });
+
+    // update
+    xText.transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            }
+        });
+}
+
+
+//=========================================
+//  decrease price of the bar again
+//=========================================
+function decreasePriceAgain() {
+    // re-create bars, diff bars, labels
+    // because of the z-index of svg is the order of object in the doc
+    svg.selectAll("rect.price3")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: yScale(26000) - yPadding,
+            fill: "#ffb6b6",
+            opacity: 0.8,
+            class: "price3"
+        });
+
+    svg.selectAll("rect.price").remove();
+    svg.selectAll("rect.price")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            },
+            fill: "#12337c",
+            class: "price"
+        });
+
+    svg.selectAll("text.label").remove();
+    svg.selectAll("text.label")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "text-anchor": "middle",
+            "font-family": "sans-serif",
+            "font-size": "16px",
+            "fill": "white",
+            class: "label"
+        });
+
+
+    // update dataset    
+    dataset = [72000, 82000, 62000];
+
+    svg.selectAll("rect.price")
+        .data(dataset)
+        .transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i);
+            },
+            y: function (d) {
+                return h - yScale(d);
+            },
+            width: xScale.rangeBand(),
+            height: function (d) {
+                return yScale(d) - yPadding;
+            },
+            fill: "#12337c",
+            class: "price"
+        });
+
+
+    svg.selectAll("text.label")
+        .data(dataset)
+        .transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            }
+        })
+        .each("end", function () {
+            svg.selectAll("text.label")
+                .text(function (d) {
+                    return d + "元";
+                });
+        });
+}

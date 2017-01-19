@@ -147,14 +147,21 @@ $(function () {
         offset: '40%'
     });
 
+    $('#price').waypoint(function () {
+        startPrice();
+        this.destory();
+    }, {
+        offset: '40%'
+    });
+    
     
     $('#station').waypoint(function () {
-        startDrop();
+        startMap();
         $("#station").find("#station-text")
             .html("北部<br/>大台北地區、基隆、桃竹苗<br/>223座");
+        this.destory();
     }, {
-        offset: '40%',
-        triggerOnce: true
+        offset: '40%'
     });
     
 });

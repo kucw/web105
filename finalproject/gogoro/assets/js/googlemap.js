@@ -99,7 +99,7 @@ function initMap() {
     })
 }
 
-function startDrop() {
+function startMap() {
     for (var i = 0; i < Gostation_taipei.length; i++) {
         addMarkerWithTimeout(Gostation_taipei, i, i * 25);
     }
