@@ -25,11 +25,11 @@ $(function () {
         var height = $(window).height();
         var rate = width * 830 / 1280;
 
-        if (height > 736) height = 736;
+        if (height > 746) height = 746;
 
-        if ($('#chart').position().top < scroll_position - (736 - height)) {
+        if ($('#chart').position().top < scroll_position - (746 - height)) {
             $('#chart').css("background-attachment", "fixed")
-                .css("background-position", "0px " + -(736 - height) + "px")
+                .css("background-position", "0px " + -(746 - height) + "px")
                 .css("background-size", "cover");
         } else {
             $('#chart').css("background-attachment", "scroll")
@@ -161,24 +161,27 @@ $(function () {
     });
 
     var flag1 = false;
-    $('#price').waypoint(function () {
+    $('#svg-price').waypoint(function () {
         if (!flag1) {
             flag1 = true;
             startPrice();
         }
     }, {
-        offset: '5%'
+        offset: '40%'
     });
 
 
     var flag2 = false;
-    $('#station').waypoint(function () {
+    $('#map').waypoint(function () {
         if (!flag2) {
             flag2 = true;
             startMap();
+            $('#station').find("#station-box")
+                .addClass('animated flipInX')
+                .css("visibility", "visible");
         }
     }, {
-        offset: '40%'
+        offset: '20%'
     });
 
 });

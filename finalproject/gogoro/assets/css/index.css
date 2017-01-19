@@ -242,6 +242,11 @@ body {
     visibility: hidden;
 }
 
+#p1-text span{
+    color: #1b47ac;
+    font-weight: bold;
+}
+
 #p2-img {
     margin-top: 320px;
     visibility: hidden;
@@ -272,6 +277,11 @@ body {
     visibility: hidden;
 }
 
+#p2-text span{
+    color: #1b47ac;
+    font-weight: bold;
+}
+
 
 /*****************
 *    price
@@ -295,9 +305,20 @@ body {
     margin-top: 40px;
 }
 
-
 #svg-price {
     width: 100%;
+}
+
+#price-box {
+    margin-top: 140px;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    margin-left: -50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    visibility: hidden;
 }
 
 
@@ -333,6 +354,7 @@ body {
     margin-left: 30px;
     background-color: #f2f2f2;
     border-radius: 50px;
+    visibility: hidden;
 }
 
 #station-box-title {

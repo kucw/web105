@@ -1,7 +1,10 @@
-var dataset, w, h, xPadding, yPadding, xShift, svg, xScale, yScalel;
+var dataset1, dataset2, dataset3, dataset4, w, h, xPadding, yPadding, xShift, svg, xScale, yScalel;
 
 $(function () {
-    dataset = [128000, 138000];
+    dataset1 = [128000, 138000];
+    dataset2 = [98000, 108000];
+    dataset3 = [98000, 108000, 88000];
+    dataset4 = [72000, 82000, 62000];
     w = $("#svg-price").width();
     h = $("#svg-price").width() * 5 / 8;
     xPadding = 50;
@@ -13,11 +16,11 @@ $(function () {
         .attr("height", h);
 
     xScale = d3.scale.ordinal()
-        .domain(d3.range(dataset.length))
+        .domain(d3.range(dataset1.length))
         .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
 
     yScale = d3.scale.linear()
-        .domain([0, d3.max(dataset)])
+        .domain([0, d3.max(dataset1)])
         .range([yPadding, h - yPadding]);
 
     // axis X
@@ -40,7 +43,7 @@ $(function () {
 
     // create bars
     svg.selectAll("rect.price")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("rect")
         .attr({
@@ -60,7 +63,7 @@ $(function () {
 
     // create numbers
     svg.selectAll("text.number")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("text")
         .text(function (d) {
@@ -82,7 +85,7 @@ $(function () {
 
     // create x-text
     svg.selectAll("text.x-text")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("text")
         .text(function (d, i) {
@@ -106,8 +109,11 @@ $(function () {
 
 });
 
-function startPrice() {
 
+function startPrice() {
+    //================
+    // update svg
+    //================
     decreasePrice();
 
     window.setTimeout(function () {
@@ -118,6 +124,25 @@ function startPrice() {
         decreasePriceAgain();
     }, 3000);
 
+    
+    //===============================
+    // control the price box animate
+    //===============================
+    window.setTimeout(function () {
+        $('#price-box').addClass('animated flipInX')
+            .css("visibility", "visible")
+            .html('<span style="font-size: 20px; color: black;"><span style="color:#1b47ac; font-weight:bold"> 標準版 </span>和<span style="color:#1b47ac; font-weight:bold"> PLUS 版 </span>皆降價 30000元，並加入平價<span style="color:#1b47ac; font-weight:bold"> Lite 版。 </span></span>');
+    }, 800);
+    
+    window.setTimeout(function () {
+        $('#price-box').removeClass('animated flipInX');
+    }, 1500);
+    
+    window.setTimeout(function () {
+        $('#price-box').addClass('animated flipInX')
+            .html('<span style="font-size: 20px; color: black;">降價後搭配<span style="color:#1b47ac; font-weight:bold"> 政府電動車補助款 </span>，最低價格 62000元起。</span>');
+    }, 3500);
+
 }
 
 
@@ -127,8 +152,9 @@ function startPrice() {
 function decreasePrice() {
     // re-create bars, diff bars, numbers
     // because of the z-index of svg is the order of object in the doc
+    // use old dataset ( which is dataset1 )
     svg.selectAll("rect.price2")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("rect")
         .attr({
@@ -140,14 +166,14 @@ function decreasePrice() {
             },
             width: xScale.rangeBand(),
             height: yScale(30000) - yPadding,
-            fill: "#d4d4d4",
+            fill: "#d9d9d9",
             opacity: 0.6,
             class: "price2"
         });
 
     svg.selectAll("rect.price").remove();
     svg.selectAll("rect.price")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("rect")
         .attr({
@@ -167,7 +193,7 @@ function decreasePrice() {
 
     svg.selectAll("text.number").remove();
     svg.selectAll("text.number")
-        .data(dataset)
+        .data(dataset1)
         .enter()
         .append("text")
         .text(function (d) {
@@ -187,12 +213,31 @@ function decreasePrice() {
             class: "number"
         });
 
+    svg.selectAll("text.number2")
+        .data(dataset1)
+        .enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "text-anchor": "middle",
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
+            "fill": "white",
+            class: "number2"
+        });
 
-    // update dataset    
-    dataset = [98000, 108000];
 
+    // use new dataset (dataset2)
     svg.selectAll("rect.price")
-        .data(dataset)
+        .data(dataset2)
         .transition()
         .duration(500)
         .attr({
@@ -212,7 +257,7 @@ function decreasePrice() {
 
 
     svg.selectAll("text.number")
-        .data(dataset)
+        .data(dataset2)
         .transition()
         .duration(500)
         .attr({
@@ -228,6 +273,8 @@ function decreasePrice() {
                 .text(function (d) {
                     return d + "元";
                 });
+
+
         });
 }
 
@@ -235,10 +282,8 @@ function decreasePrice() {
 //  add new bar for the new type
 //=========================================
 function addNewType() {
-    // add lite version into dataset
-    dataset = [98000, 108000, 88000];
-
-    xScale.domain(d3.range(dataset.length))
+    // use dataset3 (add lite version)
+    xScale.domain(d3.range(dataset3.length))
         .rangeRoundBands([xPadding + xShift, w - xPadding], 0.5);
 
     //===============
@@ -246,7 +291,7 @@ function addNewType() {
     //===============
     // select bars and re-bind data
     var bars = svg.selectAll("rect.price")
-        .data(dataset);
+        .data(dataset3);
 
     //set initial for the new bar
     bars.enter()
@@ -286,7 +331,7 @@ function addNewType() {
     // update diff bar
     //=================
     svg.selectAll("rect.price2")
-        .data(dataset)
+        .data(dataset3)
         .transition()
         .duration(500)
         .attr({
@@ -301,7 +346,7 @@ function addNewType() {
     // update number
     //===============
     var numbers = svg.selectAll("text.number")
-        .data(dataset);
+        .data(dataset3);
 
     // intial
     numbers.enter()
@@ -338,12 +383,53 @@ function addNewType() {
             });
         })
 
+    //===============
+    // update number2
+    //===============
+    var numbers2 = svg.selectAll("text.number2")
+        .data(dataset1);
+
+    // intial
+    numbers2.enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: w + xScale.rangeBand() / 2,
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
+            "fill": "white",
+            "text-anchor": "middle",
+            class: "number"
+        });
+
+    // update
+    numbers2.transition()
+        .duration(500)
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            }
+        })
+        .each("end", function () {
+            numbers.text(function (d) {
+                return d + "元";
+            });
+        })
+
 
     //===============
     // update x-text
     //===============
     var xText = svg.selectAll("text.x-text")
-        .data(dataset);
+        .data(dataset3);
 
     // intial
     xText.enter()
@@ -351,7 +437,7 @@ function addNewType() {
         .text(function (d, i) {
             if (i == 0) return "標準版";
             else if (i == 1) return "PLUS版";
-            else if (i == 2) return "平價Lite";
+            else if (i == 2) return "Lite版";
         })
         .attr({
             x: w + xScale.rangeBand() / 2,
@@ -383,9 +469,9 @@ function addNewType() {
 function decreasePriceAgain() {
     // re-create bars, diff bars, numbers
     // because of the z-index of svg is the order of object in the doc
-    
+    // use old dataset ( which is dataset3 )
     svg.selectAll("rect.price3")
-        .data(dataset)
+        .data(dataset3)
         .enter()
         .append("rect")
         .attr({
@@ -404,7 +490,7 @@ function decreasePriceAgain() {
 
     svg.selectAll("rect.price").remove();
     svg.selectAll("rect.price")
-        .data(dataset)
+        .data(dataset3)
         .enter()
         .append("rect")
         .attr({
@@ -424,7 +510,7 @@ function decreasePriceAgain() {
 
     svg.selectAll("text.number").remove();
     svg.selectAll("text.number")
-        .data(dataset)
+        .data(dataset3)
         .enter()
         .append("text")
         .text(function (d) {
@@ -444,12 +530,31 @@ function decreasePriceAgain() {
             class: "number"
         });
 
+    svg.selectAll("text.number3")
+        .data(dataset3)
+        .enter()
+        .append("text")
+        .text(function (d) {
+            return d + "元";
+        })
+        .attr({
+            x: function (d, i) {
+                return xScale(i) + xScale.rangeBand() / 2;
+            },
+            y: function (d) {
+                return h - yScale(d) + 18;
+            },
+            "text-anchor": "middle",
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
+            "fill": "white",
+            class: "number2"
+        });
 
-    // update dataset    
-    dataset = [72000, 82000, 62000];
 
+    // use new dataset (dataset4)  
     svg.selectAll("rect.price")
-        .data(dataset)
+        .data(dataset4)
         .transition()
         .duration(500)
         .attr({
@@ -469,7 +574,7 @@ function decreasePriceAgain() {
 
 
     svg.selectAll("text.number")
-        .data(dataset)
+        .data(dataset4)
         .transition()
         .duration(500)
         .attr({
