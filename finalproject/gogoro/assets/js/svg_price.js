@@ -58,8 +58,8 @@ $(function () {
             class: "price"
         });
 
-    // create labels
-    svg.selectAll("text.label")
+    // create numbers
+    svg.selectAll("text.number")
         .data(dataset)
         .enter()
         .append("text")
@@ -74,10 +74,10 @@ $(function () {
                 return h - yScale(d) + 18;
             },
             "text-anchor": "middle",
-            "font-family": "sans-serif",
-            "font-size": "16px",
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
             "fill": "white",
-            class: "label"
+            class: "number"
         });
 
     // create x-text
@@ -97,134 +97,16 @@ $(function () {
                 return h - yPadding + 40;
             },
             "text-anchor": "middle",
-            "font-family": "sans-serif",
+            "font-family": "Microsoft JhengHei, sans-serif",
             "font-size": "24px",
             "fill": "#12337c",
             class: "x-text"
         });
 
-
-    function startPrice() {
-        decreasePrice();
-
-        window.setTimeout(function () {
-            addNewType();
-        }, 3000);
-
-        window.setTimeout(function () {
-            decreasePriceAgain();
-        }, 3000);
-    }
-
-    function decreasePrice() {
-        // re-create bars, diff bars, labels
-        // because of the z-index of svg is the order of object in the doc
-        svg.selectAll("rect.price2")
-            .data(dataset)
-            .enter()
-            .append("rect")
-            .attr({
-                x: function (d, i) {
-                    return xScale(i);
-                },
-                y: function (d) {
-                    return h - yScale(d);
-                },
-                width: xScale.rangeBand(),
-                height: yScale(30000) - yPadding,
-                fill: "#b2b2b2",
-                opacity: 0.8,
-                class: "price2"
-            });
-
-        svg.selectAll("rect.price").remove();
-        svg.selectAll("rect.price")
-            .data(dataset)
-            .enter()
-            .append("rect")
-            .attr({
-                x: function (d, i) {
-                    return xScale(i);
-                },
-                y: function (d) {
-                    return h - yScale(d);
-                },
-                width: xScale.rangeBand(),
-                height: function (d) {
-                    return yScale(d) - yPadding;
-                },
-                fill: "#12337c",
-                class: "price"
-            });
-
-        svg.selectAll("text.label").remove();
-        svg.selectAll("text.label")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .text(function (d) {
-                return d + "元";
-            })
-            .attr({
-                x: function (d, i) {
-                    return xScale(i) + xScale.rangeBand() / 2;
-                },
-                y: function (d) {
-                    return h - yScale(d) + 18;
-                },
-                "text-anchor": "middle",
-                "font-family": "sans-serif",
-                "font-size": "16px",
-                "fill": "white",
-                class: "label"
-            });
-
-
-        // update dataset    
-        dataset = [98000, 108000];
-
-        svg.selectAll("rect.price")
-            .data(dataset)
-            .transition()
-            .duration(500)
-            .attr({
-                x: function (d, i) {
-                    return xScale(i);
-                },
-                y: function (d) {
-                    return h - yScale(d);
-                },
-                width: xScale.rangeBand(),
-                height: function (d) {
-                    return yScale(d) - yPadding;
-                },
-                fill: "#12337c",
-                class: "price"
-            });
-
-
-        svg.selectAll("text.label")
-            .data(dataset)
-            .transition()
-            .duration(500)
-            .attr({
-                x: function (d, i) {
-                    return xScale(i) + xScale.rangeBand() / 2;
-                },
-                y: function (d) {
-                    return h - yScale(d) + 18;
-                }
-            })
-            .each("end", function () {
-                svg.selectAll("text.label")
-                    .text(function (d) {
-                        return d + "元";
-                    });
-            });
-    }
 });
 
 function startPrice() {
+
     decreasePrice();
 
     window.setTimeout(function () {
@@ -234,6 +116,7 @@ function startPrice() {
     window.setTimeout(function () {
         decreasePriceAgain();
     }, 3000);
+
 }
 
 
@@ -241,7 +124,7 @@ function startPrice() {
 //  decrease price of the bar
 //=========================================
 function decreasePrice() {
-    // re-create bars, diff bars, labels
+    // re-create bars, diff bars, numbers
     // because of the z-index of svg is the order of object in the doc
     svg.selectAll("rect.price2")
         .data(dataset)
@@ -281,8 +164,8 @@ function decreasePrice() {
             class: "price"
         });
 
-    svg.selectAll("text.label").remove();
-    svg.selectAll("text.label")
+    svg.selectAll("text.number").remove();
+    svg.selectAll("text.number")
         .data(dataset)
         .enter()
         .append("text")
@@ -297,10 +180,10 @@ function decreasePrice() {
                 return h - yScale(d) + 18;
             },
             "text-anchor": "middle",
-            "font-family": "sans-serif",
-            "font-size": "16px",
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
             "fill": "white",
-            class: "label"
+            class: "number"
         });
 
 
@@ -327,7 +210,7 @@ function decreasePrice() {
         });
 
 
-    svg.selectAll("text.label")
+    svg.selectAll("text.number")
         .data(dataset)
         .transition()
         .duration(500)
@@ -340,7 +223,7 @@ function decreasePrice() {
             }
         })
         .each("end", function () {
-            svg.selectAll("text.label")
+            svg.selectAll("text.number")
                 .text(function (d) {
                     return d + "元";
                 });
@@ -417,13 +300,13 @@ function addNewType() {
 
 
     //===============
-    // update label
+    // update number
     //===============
-    var labels = svg.selectAll("text.label")
+    var numbers = svg.selectAll("text.number")
         .data(dataset);
 
     // intial
-    labels.enter()
+    numbers.enter()
         .append("text")
         .text(function (d) {
             return d + "元";
@@ -433,15 +316,15 @@ function addNewType() {
             y: function (d) {
                 return h - yScale(d) + 18;
             },
-            "font-family": "sans-serif",
-            "font-size": "16px",
+            "font-family": "Microsoft JhengHei, sans-serif",
+            "font-size": "18px",
             "fill": "white",
             "text-anchor": "middle",
-            class: "label"
+            class: "number"
         });
 
     // update
-    labels.transition()
+    numbers.transition()
         .duration(500)
         .attr({
             x: function (d, i) {
@@ -452,7 +335,7 @@ function addNewType() {
             }
         })
         .each("end", function () {
-            labels.text(function (d) {
+            numbers.text(function (d) {
                 return d + "元";
             });
         })
@@ -478,7 +361,7 @@ function addNewType() {
                 return h - yPadding + 40;
             },
             "text-anchor": "middle",
-            "font-family": "sans-serif",
+            "font-family": "Microsoft JhengHei, sans-serif",
             "font-size": "24px",
             "fill": "#12337c",
             class: "x-text"
@@ -499,7 +382,7 @@ function addNewType() {
 //  decrease price of the bar again
 //=========================================
 function decreasePriceAgain() {
-    // re-create bars, diff bars, labels
+    // re-create bars, diff bars, numbers
     // because of the z-index of svg is the order of object in the doc
     svg.selectAll("rect.price3")
         .data(dataset)
@@ -539,8 +422,8 @@ function decreasePriceAgain() {
             class: "price"
         });
 
-    svg.selectAll("text.label").remove();
-    svg.selectAll("text.label")
+    svg.selectAll("text.number").remove();
+    svg.selectAll("text.number")
         .data(dataset)
         .enter()
         .append("text")
@@ -555,10 +438,10 @@ function decreasePriceAgain() {
                 return h - yScale(d) + 18;
             },
             "text-anchor": "middle",
-            "font-family": "sans-serif",
-            "font-size": "16px",
+            "font-family": "Microsoft JhengHei sans-serif",
+            "font-size": "18px",
             "fill": "white",
-            class: "label"
+            class: "number"
         });
 
 
@@ -585,7 +468,7 @@ function decreasePriceAgain() {
         });
 
 
-    svg.selectAll("text.label")
+    svg.selectAll("text.number")
         .data(dataset)
         .transition()
         .duration(500)
@@ -598,7 +481,7 @@ function decreasePriceAgain() {
             }
         })
         .each("end", function () {
-            svg.selectAll("text.label")
+            svg.selectAll("text.number")
                 .text(function (d) {
                     return d + "元";
                 });
