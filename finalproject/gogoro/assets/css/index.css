@@ -286,20 +286,58 @@ body {
 
 #station {
     background-color: #b3efff;
-    height: 900px;
+    height: 1000px;
 }
 
-#map {
-    margin-top: 150px;
-    height: 600px;
+#station-title {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+    font-weight: bold;
 }
 
 #station-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#map {
+    margin-top: 50px;
+    height: 600px;
+}
+
+#station-box {
+    margin-top: 200px;
+    margin-left: 30px;
     background-color: #f2f2f2;
-    font-size: 18px;
+    border-radius: 50px;
+}
+
+#station-box-title {
+    font-size: 40px;
+    text-align: center;
     color: black;
-    margin-top: 70px;
-    padding-top: 10px;
+    padding-top: 20px;
+}
+
+#station-box-content {
+    font-size: 24px;
+    color: black;
+}
+
+#station-box-number {
+    font-size: 56px;
+    color: black;
+    margin-left: 40px;
+    display: inline-block;
+}
+
+#station-box-unit {
+    font-size: 24px;
+    color: black;
+    margin-top: 30px;
+    display: inline-block;
 }
 
 

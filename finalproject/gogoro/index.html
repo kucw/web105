@@ -22,6 +22,9 @@
     <!-- Google map javascript api key -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMdO7E7qAJnpWl7hTt6BgOC5jVk-1nnhw&callback=initMap" async defer></script>
 
+    <!-- CounterUp js-->
+    <script src="assets/js/countUp.js"></script>
+
     <!-- custom css-->
     <link rel="stylesheet" href="assets/css/index.css">
 
@@ -49,15 +52,14 @@
     </div>
 
     <div id="sales" class="container-fluid">
-        <p id="sales-title">gogoro每月銷售量
-            <p>
-                <p id="sales-text">gogoro 目前在電動機車的銷售中排行第一，單月最高銷量達到1312台。
-                    <br/>圖表顯示的是2016年4~7月的每月銷售量</p>
-                <svg id="svg-sales"></svg>
-                <img id="ggr-april" src="assets/images/qggr.png">
-                <img id="ggr-may" src="assets/images/qggr.png">
-                <img id="ggr-june" src="assets/images/qggr.png">
-                <img id="ggr-july" src="assets/images/qggr.png">
+        <p id="sales-title">gogoro每月銷售量</p>
+        <p id="sales-text">gogoro 目前在電動機車的銷售中排行第一，單月最高銷量達到1312台。
+            <br/>圖表顯示的是2016年4~7月的每月銷售量</p>
+        <svg id="svg-sales"></svg>
+        <img id="ggr-april" src="assets/images/qggr.png">
+        <img id="ggr-may" src="assets/images/qggr.png">
+        <img id="ggr-june" src="assets/images/qggr.png">
+        <img id="ggr-july" src="assets/images/qggr.png">
     </div>
 
     <div id="chart" class="container-fluid">
@@ -106,12 +108,19 @@
     </div>
 
     <div id="station" class="container-fluid">
+        <p id="sales-title">gogoro的換電站數量</p>
+        <p id="sales-text">目前全台 GoStation 電池交換站總數從最初的32個，增加到現在已有288座換電站在營運或建置中。
+            <br/>範圍遍及基隆、大台北地區、桃園、新竹、台中、彰化、台南以及高雄地區。
+        </p>
         <div class="row">
             <div class="col-sm-8 col-sm-offset-1">
                 <div id="map"></div>
             </div>
-            <div class="col-sm-3">
-                <p id="station-text"></p>
+            <div id="station-box" class="col-sm-2">
+                <p id="station-box-title"></p>
+                <p id="station-box-content"></p>
+                <p id="station-box-number"></p>
+                <p id="station-box-unit">座</p>
             </div>
         </div>
 

@@ -7,13 +7,13 @@ $(function () {
     $('#cover').css("height", $(window).height());
 
     // set position of sales
-    var sales_shift = ($(window).width()-$("#svg-sales").width())/2;
+    var sales_shift = ($(window).width() - $("#svg-sales").width()) / 2;
     $("#svg-sales").css("margin-left", sales_shift);
     $("#ggr-april").css("margin-left", parseInt($("#ggr-april").css("margin-left")) + sales_shift);
     $("#ggr-may").css("margin-left", parseInt($("#ggr-may").css("margin-left")) + sales_shift);
     $("#ggr-june").css("margin-left", parseInt($("#ggr-june").css("margin-left")) + sales_shift);
     $("#ggr-july").css("margin-left", parseInt($("#ggr-july").css("margin-left")) + sales_shift);
-    
+
 
     //=============================
     //      scroll detection
@@ -24,7 +24,7 @@ $(function () {
         var width = $(window).width();
         var height = $(window).height();
         var rate = width * 830 / 1280;
-        
+
         if (height > 736) height = 736;
 
         if ($('#chart').position().top < scroll_position - (736 - height)) {
@@ -160,21 +160,25 @@ $(function () {
         offset: '40%'
     });
 
+    var flag1 = false;
     $('#price').waypoint(function () {
-        startPrice();
-        this.destory();
+        if (!flag1) {
+            flag1 = true;
+            startPrice();
+        }
     }, {
         offset: '40%'
     });
-    
-    
+
+
+    var flag2 = false;
     $('#station').waypoint(function () {
-        startMap();
-        $("#station").find("#station-text")
-            .html("北部<br/>大台北地區、基隆、桃竹苗<br/>223座");
-        this.destory();
+        if (!flag2) {
+            flag2 = true;
+            startMap();
+        }
     }, {
         offset: '40%'
     });
-    
+
 });

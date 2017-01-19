@@ -140,7 +140,7 @@ function decreasePrice() {
             width: xScale.rangeBand(),
             height: yScale(30000) - yPadding,
             fill: "#b2b2b2",
-            opacity: 0.8,
+            opacity: 0.6,
             class: "price2"
         });
 
@@ -397,7 +397,7 @@ function decreasePriceAgain() {
             },
             width: xScale.rangeBand(),
             height: yScale(26000) - yPadding,
-            fill: "#ffb6b6",
+            fill: "#fdffcf",
             opacity: 0.8,
             class: "price3"
         });
