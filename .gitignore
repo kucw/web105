@@ -5,3 +5,8 @@
 /node_modules/
 .DS_Store
 /finalproject/gogoro/old_assets/
+/web-design-gitbook/npm-debug.log
+/web-design-gitbook/_book/
+/web-design-gitbook/book.pdf
+/web-design-gitbook/.DS_Store
+/web-design-gitbook/node_modules
