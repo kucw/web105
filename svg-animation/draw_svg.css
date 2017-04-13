@@ -1,0 +1,93 @@
+#door {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dashoffset: 133;
+    stroke-dasharray: 133;
+    animation-name: svg-draw;
+    animation-delay: 3s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+#doorknob {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dasharray: 67;
+    stroke-dashoffset: 67;
+    animation-name: svg-draw;
+    animation-delay: 3.5s;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+#house {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dasharray: 1303;
+    stroke-dashoffset: 1303;
+    animation-name: svg-draw;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+#sun {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dasharray: 408;
+    stroke-dashoffset: 408;
+    animation-name: svg-draw;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+@keyframes svg-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#square {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation-name: square-change;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes square-change {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
