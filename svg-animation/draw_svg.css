@@ -1,3 +1,7 @@
+/*************************
+    draw svg animation
+*************************/
+
 #door {
     stroke: #000;
     stroke-width: 1;
@@ -53,6 +57,11 @@
         stroke-dashoffset: 0;
     }
 }
+
+
+/*************************
+    square animation
+*************************/
 
 #square {
     width: 100px;
