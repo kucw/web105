@@ -20,9 +20,9 @@
     .box-hvr-grow-shadow:hover,
     .box-hvr-grow-shadow:focus,
     .box-hvr-grow-shadow:active {
-        box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
 }
 
@@ -40,7 +40,8 @@
         margin-top: 20px;
         height: 515px;
         background: #ffffff;
-        border-bottom: solid 1px #ccc;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+/*        border-bottom: solid 1px #ccc transparent;*/
     }
     .box-title {
         padding-top: 15px;
@@ -49,7 +50,7 @@
         color: #000000;
         font-weight: bold;
         font-size: 24px;
-        line-height: 1.1;
+        line-height: 1.2;
     }
     .box-content {
         padding-left: 30px;
@@ -111,7 +112,7 @@
     .box {
         height: 540px;
         background: #ffffff;
-        border-bottom: solid 1px #ccc;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
     }
     .box-title {
         padding-top: 15px;
@@ -183,7 +184,7 @@
     .box {
         height: 540px;
         background: #ffffff;
-        border-bottom: solid 1px #ccc;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
     }
     .box-title {
         padding-top: 15px;
@@ -259,7 +260,7 @@
     .box {
         height: 540px;
         background: #ffffff;
-        border-bottom: solid 1px #ccc;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
     }
     .box-title {
         padding-top: 15px;

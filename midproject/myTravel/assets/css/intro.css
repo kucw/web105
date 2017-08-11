@@ -29,6 +29,7 @@ body {
 #intro-section1-text {
     visibility: hidden;
     text-align: center;
+    visibility: visible;
 }
 
 #intro-section1-image {

@@ -4,11 +4,8 @@ $(function () {
         $('.section1').find("#intro-section1-image")
             .addClass('animated zoomIn')
             .css("visibility", "visible");
-        $('.section1').find("#intro-section1-text")
-            .addClass('animated zoomIn')
-            .css("visibility", "visible");
     }, {
-        offset: '60%'
+        offset: '40%'
     });
     $('.section2').waypoint(function () {
         $('.section2').find("#intro-section2-tag1")
